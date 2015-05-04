@@ -9,6 +9,7 @@ namespace MachineLearningEngine
     public enum PredicctionStatus
 	{
         NotProcessed = 0,
-        Processed = 1
+        Processed = 1,
+        Error = 2
 	}
 }

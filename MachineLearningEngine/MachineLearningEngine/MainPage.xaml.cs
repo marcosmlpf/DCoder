@@ -39,6 +39,78 @@ namespace MachineLearningEngine
             this.InitializeComponent();
         }
 
+        private async void btnProcess_Click(object sender, RoutedEventArgs e)
+        {
+            this.lstLog.Items.Add("Starting...");
+
+            try
+            {
+                // Get all posts not processed
+                ServiceReference1.PredictionDataServiceClient svc = new ServiceReference1.PredictionDataServiceClient();
+
+                var posts = await svc.GetByStatusAsync(PredicctionStatus.NotProcessed.ToString());
+
+                this.txtMsg.Text = "Total rows : " + posts.Count().ToString();
+                int totalRows = posts.Count();
+
+                await AuthenticateAsync();
+
+                // Call predict for each post
+                foreach (var post in posts)
+                {
+                    try
+                    {
+                        var processedPost = await Predict(post.Description);
+
+                        post.Status = PredicctionStatus.Processed.ToString();
+                        post.PredictionLabelResult = processedPost.PredictionLabelResult;
+                        post.BENEFITS = processedPost.BENEFITS;
+                        post.CAREER_DEVELOPMENT = processedPost.CAREER_DEVELOPMENT;
+                        post.CELEBRATION = processedPost.CELEBRATION;
+                        post.COLLABORATION_CULTURE = processedPost.COLLABORATION_CULTURE;
+                        post.ENVIR_HEALTHY = processedPost.ENVIR_HEALTHY;
+                        post.FELLOWSHIP = processedPost.FELLOWSHIP;
+                        post.HIRING_EFFECTIVITY = processedPost.HIRING_EFFECTIVITY;
+                        post.INFRASTRUCTURE = processedPost.INFRASTRUCTURE;
+                        post.INNOVATION_CULTURE = processedPost.INNOVATION_CULTURE;
+                        post.MANAGEMENT_CULTURE = processedPost.MANAGEMENT_CULTURE;
+                        post.MANAGEMENT_FEEDBACK = processedPost.MANAGEMENT_FEEDBACK;
+                        post.MANAGEMENT_RESPECT = processedPost.MANAGEMENT_RESPECT;
+                        post.NO_DISCRIMINATION = processedPost.NO_DISCRIMINATION;
+                        post.OPEN_COMMUNICATION = processedPost.OPEN_COMMUNICATION;
+                        post.PURPOSE = processedPost.PURPOSE;
+                        post.RECOGNITION = processedPost.RECOGNITION;
+                        post.SOCIAL_WORK_BALANCE = processedPost.SOCIAL_WORK_BALANCE;
+                        post.TRAINING = processedPost.TRAINING;
+
+                        this.lstLog.Items.Add("Updating post: " + post.PredictionLabelResult + " - " + post.Id.ToString() + " - " + post.Description.Substring(0, 60) + "...");
+
+                        // Update predict
+                        await svc.UpdateAsync(post);
+
+                    }
+                    catch (Exception)
+                    {
+                        post.Status = PredicctionStatus.Error.ToString();
+
+                        svc.UpdateAsync(post);
+                    }
+                  
+
+                    totalRows = totalRows - 1;
+
+                    this.txtMsg.Text = "Total rows : " + posts.Count().ToString() + " - Remaining Rows : " + totalRows.ToString(); ;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageDialog m = new MessageDialog(ex.Message);
+                m.ShowAsync();
+
+            }
+
+            this.lstLog.Items.Add("Finished");
+        }
 
         private async Task AuthenticateAsync()
         {
@@ -56,18 +128,12 @@ namespace MachineLearningEngine
 
         }
 
-        private async Task<string> Predict(Post post)
+        private async Task<Post> Predict(string postDescription)
         {
             const string API_KEY = "AIzaSyB1eYnBdNSAjwwK1rMSw7hBlsi2Wh4ulRY";
             const string PROJECT = "163818756296";
-            const string ID = "attrictionModel";
-
-            decimal verySatisfied = 0;
-            decimal satisfied = 0;
-            decimal indifferent = 0;
-            decimal unSatisfied = 0;
-            decimal risky = 0;
-            decimal unsatisfied = 0;
+            const string ID = "enterpriseClimate2";
+            var processePost  = new Post();
 
             var service = new Google.Apis.Prediction.v1_6.PredictionService(new BaseClientService.Initializer
             {
@@ -80,56 +146,22 @@ namespace MachineLearningEngine
             {
                 var input = new Google.Apis.Prediction.v1_6.Data.Input();
 
-                IList<object> values = "Java,100,1,Observed,Commerce,6,3,3,Observed".Split(',');
+                //IList<object> values = "Java,100,1,Observed,Commerce,6,3,3,Observed".Split(',');
 
-                input.InputValue = new Google.Apis.Prediction.v1_6.Data.Input.InputData() { CsvInstance = values };
+                string[] str = new string[1];
+                str[0] = postDescription;
+
+                IList<object> values = str;
+
+                input.InputValue = new Google.Apis.Prediction.v1_6.Data.Input.InputData() {  CsvInstance = values };
 
                 var predictResult = service.Trainedmodels.Predict(input, PROJECT, ID);
 
                 var output = await predictResult.ExecuteAsync();
 
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                foreach (var item in output.OutputMulti)
-                {
-                    sb.Append(item.Label + " - " + item.Score + System.Environment.NewLine);
 
-                    switch (item.Label)
-                    {
-                        case "\"Very Satisfied\"":
-                            verySatisfied = (decimal.Parse(item.Score.Replace(".", ",")) * 100) * 10;
-                            break;
-                        case "\"Satisfied\"":
-                            satisfied = (decimal.Parse(item.Score.Replace(".", ",")) * 100) * 10;
-                            break;
-                        case "\"Indifferent\"":
-                            indifferent = (decimal.Parse(item.Score.Replace(".", ",")) * 100) * 10;
-                            break;
-                        case "\"UnSatisfied\"":
-                            unSatisfied = (decimal.Parse(item.Score.Replace(".", ",")) * 100) * 10;
-                            break;
-                        case "\"Risky\"":
-                            risky = (decimal.Parse(item.Score.Replace(".", ",")) * 100) * 10;
-                            break;
-                        case "\"Unsatisfied\"":
-                            unsatisfied = (decimal.Parse(item.Score.Replace(".", ",")) * 100) * 10;
-                            break;
-                    }
-                }
-
-
-                return output.OutputLabel;
-
-                //var outPutPredictVm = new OutPutPredictVM()
-                //{
-                //    OutputLabel = output.OutputLabel,
-                //    OutputMulti = sb.ToString(),
-                //    VerySatisfied = ((int)verySatisfied).ToString(),
-                //    Satisfied = ((int)satisfied).ToString(),
-                //    Indifferent = ((int)indifferent).ToString(),
-                //    Unsatisfied = ((int)unsatisfied).ToString(),
-                //    Risky = ((int)risky).ToString()
-                //};
-
+                return this.ParsePredcitionReturn(output);
 
             }
             catch (Exception ex)
@@ -140,45 +172,100 @@ namespace MachineLearningEngine
 
         }
 
-
-        private async void btnProcess_Click(object sender, RoutedEventArgs e)
+        private Post ParsePredcitionReturn(Google.Apis.Prediction.v1_6.Data.Output output)
         {
-            this.lstLog.Items.Add("Starting...");
 
-            try
-            {
-                // Get all posts not processed
-                ServiceReference1.PredictionDataServiceClient svc = new ServiceReference1.PredictionDataServiceClient();
+            var post = new Post();
+            string label;
+            string score;
 
-                var posts = await svc.GetByStatusAsync(PredicctionStatus.NotProcessed.ToString());
+             foreach (var item in output.OutputMulti)
+             {
 
-                this.txtMsg.Text = "Total rows : " + posts.Count().ToString();
+                 label = item.Label;
+                 score = item.Score;
 
-                await AuthenticateAsync();
+                 post.PredictionLabelResult = output.OutputLabel;
 
-                // Call predict for each post
-                foreach (var post in posts)
-                {
-                    var label = await Predict(post);
+                 switch (label)
+                 {
+                     case "MANAGEMENT_CULTURE":
+                         post.MANAGEMENT_CULTURE = (decimal.Parse(score)).ToString().ToString();
+                         break;
+                     case "HIRING_EFFECTIVITY":
+                         post.HIRING_EFFECTIVITY = (decimal.Parse(score)).ToString();
+                         break;
 
-                    this.lstLog.Items.Add("Updating post: " + label + " - " + post.Id.ToString() + " - " + post.Description + "...");
+                     case "TRAINING":
+                         post.TRAINING = (decimal.Parse(score)).ToString();
+                         break;
 
-                    // Update predict
-                    post.PredictionLabelResult = label;
+                     case "INFRASTRUCTURE":
+                         post.INFRASTRUCTURE = (decimal.Parse(score)).ToString();
+                         break;
 
-                    post.Status = PredicctionStatus.Processed.ToString();
+                     case "MANAGEMENT_FEEDBACK":
+                         post.MANAGEMENT_FEEDBACK = (decimal.Parse(score)).ToString();
+                         break;
 
-                    await svc.UpdateAsync(post);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageDialog m = new MessageDialog(ex.Message);
-                m.ShowAsync();
-                
-            }
+                     case "INNOVATION_CULTURE":
+                         post.INNOVATION_CULTURE = (decimal.Parse(score)).ToString();
+                         break;
 
-            this.lstLog.Items.Add("Finished");
+                     case "MANAGEMENT_RESPECT":
+                         post.MANAGEMENT_RESPECT = (decimal.Parse(score)).ToString();
+                         break;
+
+                     case "ENVIR_HEALTHY":
+                         post.ENVIR_HEALTHY = (decimal.Parse(score)).ToString();
+                         break;
+
+                     case "SOCIAL_WORK_BALANCE":
+                         post.SOCIAL_WORK_BALANCE = (decimal.Parse(score)).ToString();
+                         break;
+
+                     case "PAY":
+                         post.PAY = (decimal.Parse(score)).ToString();
+                         break;
+
+                     case "RECOGNITION":
+                         post.RECOGNITION = (decimal.Parse(score)).ToString();
+                         break;
+
+                     case "CAREER_DEVELOPMENT":
+                         post.CAREER_DEVELOPMENT = (decimal.Parse(score)).ToString();
+                         break;
+
+                     case "NO_DISCRIMINATION":
+                         post.NO_DISCRIMINATION = (decimal.Parse(score)).ToString();
+                         break;
+
+                     case "OPEN_COMMUNICATION":
+                         post.OPEN_COMMUNICATION = (decimal.Parse(score)).ToString();
+                         break;
+
+                     case "PURPOSE":
+                         post.PURPOSE = (decimal.Parse(score)).ToString();
+                         break;
+
+                     case "FELLOWSHIP":
+                         post.FELLOWSHIP = (decimal.Parse(score)).ToString();
+                         break;
+
+                     case "CELEBRATION":
+                         post.CELEBRATION = (decimal.Parse(score)).ToString();
+                         break;
+                     case "COLLABORATION_CULTURE":
+                         post.COLLABORATION_CULTURE = (decimal.Parse(score)).ToString();
+                         break;
+
+                 }
+             }
+
+             return post;
         }
+
+        
+
     }
 }

@@ -62,6 +62,7 @@ namespace DataServices.Infrastructure
         public virtual IEnumerable<T> GetAll()
         {
             return dbset.ToList();
+
         }
 
         public virtual IEnumerable<T> GetMany(Expression<Func<T, bool>> where)

@@ -6,6 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="59ead6e2855a4437b77c6c85fb7f950b" Name="Diagram1">
         <EntityTypeShape EntityType="PredictionModel.Post" Width="3.125" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PredictionModel.Category" Width="1.5" PointX="4.25" PointY="0.75" />
+        <EntityTypeShape EntityType="PredictionModel.PredictionLabel" Width="1.5" PointX="6.5" PointY="0.625" />
+        <AssociationConnector Association="PredictionModel.FK_CATEGORY" />
+        <EntityTypeShape EntityType="PredictionModel.ExternalEvaluation" Width="1.5" PointX="4.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

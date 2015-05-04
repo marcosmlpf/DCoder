@@ -8,10 +8,33 @@
   <xs:element name="ArrayOfPost" nillable="true" type="tns:ArrayOfPost" />
   <xs:complexType name="Post">
     <xs:sequence>
+      <xs:element minOccurs="0" name="BENEFITS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CAREER_DEVELOPMENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CELEBRATION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COLLABORATION_CULTURE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENVIR_HEALTHY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FELLOWSHIP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HIRING_EFFECTIVITY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="INFRASTRUCTURE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="INNOVATION_CULTURE" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="MANAGEMENT_CULTURE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MANAGEMENT_FEEDBACK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MANAGEMENT_RESPECT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NO_DISCRIMINATION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OPEN_COMMUNICATION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PAY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PURPOSE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostDate" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="PredictionLabelResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProviderUserId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RECOGNITION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SOCIAL_WORK_BALANCE" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TRAINING" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Post" nillable="true" type="tns:Post" />

@@ -18,5 +18,11 @@ namespace DataServices
 
         [OperationContract]
         void Update(Post post);
+
+        [OperationContract]
+        void Add(Post post);
+
+        [OperationContract]
+        void AddExternalContent(ExternalEvaluation post);
     }
 }

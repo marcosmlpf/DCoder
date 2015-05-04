@@ -26,5 +26,8 @@ namespace DataServices
         }
     
         public virtual DbSet<Post> Post { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<PredictionLabel> PredictionLabel { get; set; }
+        public virtual DbSet<ExternalEvaluation> ExternalEvaluation { get; set; }
     }
 }

@@ -20,13 +20,124 @@ namespace MachineLearningEngine.ServiceReference1 {
     [System.Runtime.Serialization.DataContractAttribute(Name="Post", Namespace="http://schemas.datacontract.org/2004/07/DataServices")]
     public partial class Post : object, System.ComponentModel.INotifyPropertyChanged {
         
+        private string BENEFITSField;
+        
+        private string CAREER_DEVELOPMENTField;
+        
+        private string CELEBRATIONField;
+        
+        private string COLLABORATION_CULTUREField;
+        
+        private string CardIdField;
+        
         private string DescriptionField;
+        
+        private string ENVIR_HEALTHYField;
+        
+        private string FELLOWSHIPField;
+        
+        private string HIRING_EFFECTIVITYField;
+        
+        private string INFRASTRUCTUREField;
+        
+        private string INNOVATION_CULTUREField;
         
         private int IdField;
         
+        private string MANAGEMENT_CULTUREField;
+        
+        private string MANAGEMENT_FEEDBACKField;
+        
+        private string MANAGEMENT_RESPECTField;
+        
+        private string NO_DISCRIMINATIONField;
+        
+        private string OPEN_COMMUNICATIONField;
+        
+        private string PAYField;
+        
+        private string PURPOSEField;
+        
+        private string PersonTitleField;
+        
+        private System.Nullable<System.DateTime> PostDateField;
+        
         private string PredictionLabelResultField;
         
+        private string ProviderUserIdField;
+        
+        private string RECOGNITIONField;
+        
+        private string SOCIAL_WORK_BALANCEField;
+        
         private string StatusField;
+        
+        private string TRAININGField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BENEFITS {
+            get {
+                return this.BENEFITSField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BENEFITSField, value) != true)) {
+                    this.BENEFITSField = value;
+                    this.RaisePropertyChanged("BENEFITS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CAREER_DEVELOPMENT {
+            get {
+                return this.CAREER_DEVELOPMENTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CAREER_DEVELOPMENTField, value) != true)) {
+                    this.CAREER_DEVELOPMENTField = value;
+                    this.RaisePropertyChanged("CAREER_DEVELOPMENT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CELEBRATION {
+            get {
+                return this.CELEBRATIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CELEBRATIONField, value) != true)) {
+                    this.CELEBRATIONField = value;
+                    this.RaisePropertyChanged("CELEBRATION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COLLABORATION_CULTURE {
+            get {
+                return this.COLLABORATION_CULTUREField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COLLABORATION_CULTUREField, value) != true)) {
+                    this.COLLABORATION_CULTUREField = value;
+                    this.RaisePropertyChanged("COLLABORATION_CULTURE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CardId {
+            get {
+                return this.CardIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CardIdField, value) != true)) {
+                    this.CardIdField = value;
+                    this.RaisePropertyChanged("CardId");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description {
@@ -37,6 +148,71 @@ namespace MachineLearningEngine.ServiceReference1 {
                 if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
                     this.DescriptionField = value;
                     this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ENVIR_HEALTHY {
+            get {
+                return this.ENVIR_HEALTHYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ENVIR_HEALTHYField, value) != true)) {
+                    this.ENVIR_HEALTHYField = value;
+                    this.RaisePropertyChanged("ENVIR_HEALTHY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FELLOWSHIP {
+            get {
+                return this.FELLOWSHIPField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FELLOWSHIPField, value) != true)) {
+                    this.FELLOWSHIPField = value;
+                    this.RaisePropertyChanged("FELLOWSHIP");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HIRING_EFFECTIVITY {
+            get {
+                return this.HIRING_EFFECTIVITYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HIRING_EFFECTIVITYField, value) != true)) {
+                    this.HIRING_EFFECTIVITYField = value;
+                    this.RaisePropertyChanged("HIRING_EFFECTIVITY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string INFRASTRUCTURE {
+            get {
+                return this.INFRASTRUCTUREField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.INFRASTRUCTUREField, value) != true)) {
+                    this.INFRASTRUCTUREField = value;
+                    this.RaisePropertyChanged("INFRASTRUCTURE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string INNOVATION_CULTURE {
+            get {
+                return this.INNOVATION_CULTUREField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.INNOVATION_CULTUREField, value) != true)) {
+                    this.INNOVATION_CULTUREField = value;
+                    this.RaisePropertyChanged("INNOVATION_CULTURE");
                 }
             }
         }
@@ -55,6 +231,123 @@ namespace MachineLearningEngine.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MANAGEMENT_CULTURE {
+            get {
+                return this.MANAGEMENT_CULTUREField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MANAGEMENT_CULTUREField, value) != true)) {
+                    this.MANAGEMENT_CULTUREField = value;
+                    this.RaisePropertyChanged("MANAGEMENT_CULTURE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MANAGEMENT_FEEDBACK {
+            get {
+                return this.MANAGEMENT_FEEDBACKField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MANAGEMENT_FEEDBACKField, value) != true)) {
+                    this.MANAGEMENT_FEEDBACKField = value;
+                    this.RaisePropertyChanged("MANAGEMENT_FEEDBACK");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MANAGEMENT_RESPECT {
+            get {
+                return this.MANAGEMENT_RESPECTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MANAGEMENT_RESPECTField, value) != true)) {
+                    this.MANAGEMENT_RESPECTField = value;
+                    this.RaisePropertyChanged("MANAGEMENT_RESPECT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NO_DISCRIMINATION {
+            get {
+                return this.NO_DISCRIMINATIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NO_DISCRIMINATIONField, value) != true)) {
+                    this.NO_DISCRIMINATIONField = value;
+                    this.RaisePropertyChanged("NO_DISCRIMINATION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OPEN_COMMUNICATION {
+            get {
+                return this.OPEN_COMMUNICATIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OPEN_COMMUNICATIONField, value) != true)) {
+                    this.OPEN_COMMUNICATIONField = value;
+                    this.RaisePropertyChanged("OPEN_COMMUNICATION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PAY {
+            get {
+                return this.PAYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PAYField, value) != true)) {
+                    this.PAYField = value;
+                    this.RaisePropertyChanged("PAY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PURPOSE {
+            get {
+                return this.PURPOSEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PURPOSEField, value) != true)) {
+                    this.PURPOSEField = value;
+                    this.RaisePropertyChanged("PURPOSE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonTitle {
+            get {
+                return this.PersonTitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonTitleField, value) != true)) {
+                    this.PersonTitleField = value;
+                    this.RaisePropertyChanged("PersonTitle");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> PostDate {
+            get {
+                return this.PostDateField;
+            }
+            set {
+                if ((this.PostDateField.Equals(value) != true)) {
+                    this.PostDateField = value;
+                    this.RaisePropertyChanged("PostDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string PredictionLabelResult {
             get {
                 return this.PredictionLabelResultField;
@@ -68,6 +361,45 @@ namespace MachineLearningEngine.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProviderUserId {
+            get {
+                return this.ProviderUserIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProviderUserIdField, value) != true)) {
+                    this.ProviderUserIdField = value;
+                    this.RaisePropertyChanged("ProviderUserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RECOGNITION {
+            get {
+                return this.RECOGNITIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RECOGNITIONField, value) != true)) {
+                    this.RECOGNITIONField = value;
+                    this.RaisePropertyChanged("RECOGNITION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SOCIAL_WORK_BALANCE {
+            get {
+                return this.SOCIAL_WORK_BALANCEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SOCIAL_WORK_BALANCEField, value) != true)) {
+                    this.SOCIAL_WORK_BALANCEField = value;
+                    this.RaisePropertyChanged("SOCIAL_WORK_BALANCE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Status {
             get {
                 return this.StatusField;
@@ -76,6 +408,19 @@ namespace MachineLearningEngine.ServiceReference1 {
                 if ((object.ReferenceEquals(this.StatusField, value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TRAINING {
+            get {
+                return this.TRAININGField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TRAININGField, value) != true)) {
+                    this.TRAININGField = value;
+                    this.RaisePropertyChanged("TRAINING");
                 }
             }
         }
@@ -102,6 +447,9 @@ namespace MachineLearningEngine.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/Update", ReplyAction="http://tempuri.org/IPredictionDataService/UpdateResponse")]
         System.Threading.Tasks.Task UpdateAsync(MachineLearningEngine.ServiceReference1.Post post);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/Add", ReplyAction="http://tempuri.org/IPredictionDataService/AddResponse")]
+        System.Threading.Tasks.Task AddAsync(MachineLearningEngine.ServiceReference1.Post post);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -157,6 +505,10 @@ namespace MachineLearningEngine.ServiceReference1 {
         
         public System.Threading.Tasks.Task UpdateAsync(MachineLearningEngine.ServiceReference1.Post post) {
             return base.Channel.UpdateAsync(post);
+        }
+        
+        public System.Threading.Tasks.Task AddAsync(MachineLearningEngine.ServiceReference1.Post post) {
+            return base.Channel.AddAsync(post);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

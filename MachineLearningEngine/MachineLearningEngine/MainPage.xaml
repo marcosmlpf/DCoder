@@ -15,8 +15,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="540"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Rectangle Width="120" Height="140" HorizontalAlignment="Left" x:Name="cornerRectangle"/>
@@ -25,12 +25,16 @@
         	<Run Text="Prediction API En"/>
         	<Run Text="gine"/>
         </TextBlock>
-        <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtMsg" Text=""/>
+
         <Grid Grid.Row="1" Grid.Column="1" Background="White" Margin="0 0 0 20">
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtMsg" Text="" Grid.ColumnSpan="2" />
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1" Background="White" Margin="0 0 0 20">
+            
             <!--<TextBox x:Name="txtLog" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible" IsReadOnly="True" TextWrapping="Wrap"/>-->
             <ListBox Name="lstLog" ScrollViewer.VerticalScrollMode="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible" ></ListBox>
         </Grid>
-        <StackPanel Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
+        <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">
             <Button  HorizontalAlignment="Center"
                      Content="Process" VerticalAlignment="Center"
                      x:Name="btnProcess"

@@ -20,7 +20,10 @@ namespace DataServices.Repository
 
         public IEnumerable<Post> GetByStatus(string status) 
         {
+
             return base.GetAll().Where(s => s.Status == status || s.Status == null);
         }
+
+        
     }
 }

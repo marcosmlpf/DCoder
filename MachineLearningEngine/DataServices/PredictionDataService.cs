@@ -15,6 +15,7 @@ namespace DataServices
         private IUnitOfWork unitofWork;
 
         private PostRepository postRepostitory;
+        private ExternalEvaluationRepository externalEvaluationRepository;
 
         public IEnumerable<Post> GetAll()
         {
@@ -39,6 +40,27 @@ namespace DataServices
             postRepostitory = new PostRepository(databaseFactory);
 
             return this.postRepostitory.GetByStatus(status);
+        }
+
+        public void Add(Post post)
+        {
+            postRepostitory = new PostRepository(databaseFactory);
+            unitofWork = new UnitOfWork(databaseFactory);
+
+            postRepostitory.Add(post);
+
+            unitofWork.Commit();
+
+        }
+
+        public void AddExternalContent(ExternalEvaluation evaluation)
+        {
+            externalEvaluationRepository = new ExternalEvaluationRepository(databaseFactory);
+            unitofWork = new UnitOfWork(databaseFactory);
+
+            externalEvaluationRepository.Add(evaluation);
+
+            unitofWork.Commit();
         }
     }
 }
