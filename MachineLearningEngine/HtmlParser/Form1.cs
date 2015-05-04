@@ -222,18 +222,18 @@ namespace HtmlParser
 
         private void GetEvaluationGlassDoor(HtmlAgilityPack.HtmlDocument document)
         {
-            List<HtmlNode> evaluationList = document.DocumentNode.ChildNodes.Where(x => (x.Name == "div" && x.Attributes["class"] != null && x.Attributes["class"].Value.Contains("prosConsAdvice"))).ToList();
+            List<HtmlNode> evaluationList = document.DocumentNode.Descendants().Where(x => (x.Name == "div" && x.Attributes["class"] != null && x.Attributes["class"].Value.Contains("tbl fill prosConsAdvice truncateData padTop"))).ToList();
 
             foreach (var evaluation in evaluationList)
             {
-                foreach (var content in evaluation.ChildNodes)
-                {
-                    Console.WriteLine(content.InnerText);
-                    var eval = this.ParseEvaluationGlassDoor(content.InnerText);
+                //foreach (var content in evaluation.ChildNodes)
+                //{
+                    Console.WriteLine(evaluation.InnerText);
+                    var eval = this.ParseEvaluationGlassDoor(evaluation.InnerText);
 
                     if (eval.Pros != null)
                         evalList.Add(eval);
-                }
+                //}
             }
 
         }
