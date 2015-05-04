@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonValue", "MachineLearnin
 		{ABF44884-5BAE-4BD6-BDD9-523C289047E8} = {ABF44884-5BAE-4BD6-BDD9-523C289047E8}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalConnector", "HtmlParser\ExternalConnector.csproj", "{35A79B46-9E59-48EB-A6B9-AED08B9DE4EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalConnector", "MachineLearningEngine\HtmlParser\ExternalConnector.csproj", "{35A79B46-9E59-48EB-A6B9-AED08B9DE4EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
