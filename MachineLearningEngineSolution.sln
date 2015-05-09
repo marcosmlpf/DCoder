@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineLearningEngine", "Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataServices", "MachineLearningEngine\DataServices\DataServices.csproj", "{ABF44884-5BAE-4BD6-BDD9-523C289047E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonValue", "MachineLearningEngine\JsonParser\JsonValue\JsonValue.csproj", "{4A87ED89-669A-4DB8-A82D-87443F306629}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoad", "MachineLearningEngine\JsonParser\JsonValue\DataLoad.csproj", "{4A87ED89-669A-4DB8-A82D-87443F306629}"
 	ProjectSection(ProjectDependencies) = postProject
 		{ABF44884-5BAE-4BD6-BDD9-523C289047E8} = {ABF44884-5BAE-4BD6-BDD9-523C289047E8}
 	EndProjectSection

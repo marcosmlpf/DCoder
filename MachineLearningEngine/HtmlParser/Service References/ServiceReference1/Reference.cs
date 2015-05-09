@@ -490,7 +490,13 @@ namespace HtmlParser.ServiceReference1 {
         private string CommentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Comp_BenefitsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ConsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Culture_ValuesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -508,10 +514,16 @@ namespace HtmlParser.ServiceReference1 {
         private string RecommendField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Senior_ManagementField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SourceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UserProfileField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Work_Life_BalanceField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -550,6 +562,19 @@ namespace HtmlParser.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Comp_Benefits {
+            get {
+                return this.Comp_BenefitsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Comp_BenefitsField, value) != true)) {
+                    this.Comp_BenefitsField = value;
+                    this.RaisePropertyChanged("Comp_Benefits");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Cons {
             get {
                 return this.ConsField;
@@ -558,6 +583,19 @@ namespace HtmlParser.ServiceReference1 {
                 if ((object.ReferenceEquals(this.ConsField, value) != true)) {
                     this.ConsField = value;
                     this.RaisePropertyChanged("Cons");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Culture_Values {
+            get {
+                return this.Culture_ValuesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Culture_ValuesField, value) != true)) {
+                    this.Culture_ValuesField = value;
+                    this.RaisePropertyChanged("Culture_Values");
                 }
             }
         }
@@ -628,6 +666,19 @@ namespace HtmlParser.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Senior_Management {
+            get {
+                return this.Senior_ManagementField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Senior_ManagementField, value) != true)) {
+                    this.Senior_ManagementField = value;
+                    this.RaisePropertyChanged("Senior_Management");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Source {
             get {
                 return this.SourceField;
@@ -653,6 +704,237 @@ namespace HtmlParser.ServiceReference1 {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Work_Life_Balance {
+            get {
+                return this.Work_Life_BalanceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Work_Life_BalanceField, value) != true)) {
+                    this.Work_Life_BalanceField = value;
+                    this.RaisePropertyChanged("Work_Life_Balance");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TouchPoint", Namespace="http://schemas.datacontract.org/2004/07/DataServices")]
+    [System.SerializableAttribute()]
+    public partial class TouchPoint : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CardIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> OccurrenceDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PersonIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CardId {
+            get {
+                return this.CardIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CardIdField, value) != true)) {
+                    this.CardIdField = value;
+                    this.RaisePropertyChanged("CardId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventType {
+            get {
+                return this.EventTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventTypeField, value) != true)) {
+                    this.EventTypeField = value;
+                    this.RaisePropertyChanged("EventType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> OccurrenceDate {
+            get {
+                return this.OccurrenceDateField;
+            }
+            set {
+                if ((this.OccurrenceDateField.Equals(value) != true)) {
+                    this.OccurrenceDateField = value;
+                    this.RaisePropertyChanged("OccurrenceDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonId {
+            get {
+                return this.PersonIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonIdField, value) != true)) {
+                    this.PersonIdField = value;
+                    this.RaisePropertyChanged("PersonId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Person", Namespace="http://schemas.datacontract.org/2004/07/DataServices")]
+    [System.SerializableAttribute()]
+    public partial class Person : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PersonIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PositionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string displayNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string genderField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonId {
+            get {
+                return this.PersonIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonIdField, value) != true)) {
+                    this.PersonIdField = value;
+                    this.RaisePropertyChanged("PersonId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Position {
+            get {
+                return this.PositionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PositionField, value) != true)) {
+                    this.PositionField = value;
+                    this.RaisePropertyChanged("Position");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string displayName {
+            get {
+                return this.displayNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.displayNameField, value) != true)) {
+                    this.displayNameField = value;
+                    this.RaisePropertyChanged("displayName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string gender {
+            get {
+                return this.genderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.genderField, value) != true)) {
+                    this.genderField = value;
+                    this.RaisePropertyChanged("gender");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -667,35 +949,53 @@ namespace HtmlParser.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IPredictionDataService")]
     public interface IPredictionDataService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetAll", ReplyAction="http://tempuri.org/IPredictionDataService/GetAllResponse")]
-        HtmlParser.ServiceReference1.Post[] GetAll();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetAllPosts", ReplyAction="http://tempuri.org/IPredictionDataService/GetAllPostsResponse")]
+        HtmlParser.ServiceReference1.Post[] GetAllPosts();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetAll", ReplyAction="http://tempuri.org/IPredictionDataService/GetAllResponse")]
-        System.Threading.Tasks.Task<HtmlParser.ServiceReference1.Post[]> GetAllAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetAllPosts", ReplyAction="http://tempuri.org/IPredictionDataService/GetAllPostsResponse")]
+        System.Threading.Tasks.Task<HtmlParser.ServiceReference1.Post[]> GetAllPostsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetByStatus", ReplyAction="http://tempuri.org/IPredictionDataService/GetByStatusResponse")]
-        HtmlParser.ServiceReference1.Post[] GetByStatus(string status);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetPostByStatus", ReplyAction="http://tempuri.org/IPredictionDataService/GetPostByStatusResponse")]
+        HtmlParser.ServiceReference1.Post[] GetPostByStatus(string status);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetByStatus", ReplyAction="http://tempuri.org/IPredictionDataService/GetByStatusResponse")]
-        System.Threading.Tasks.Task<HtmlParser.ServiceReference1.Post[]> GetByStatusAsync(string status);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetPostByStatus", ReplyAction="http://tempuri.org/IPredictionDataService/GetPostByStatusResponse")]
+        System.Threading.Tasks.Task<HtmlParser.ServiceReference1.Post[]> GetPostByStatusAsync(string status);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/Update", ReplyAction="http://tempuri.org/IPredictionDataService/UpdateResponse")]
-        void Update(HtmlParser.ServiceReference1.Post post);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/UpdatePost", ReplyAction="http://tempuri.org/IPredictionDataService/UpdatePostResponse")]
+        void UpdatePost(HtmlParser.ServiceReference1.Post post);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/Update", ReplyAction="http://tempuri.org/IPredictionDataService/UpdateResponse")]
-        System.Threading.Tasks.Task UpdateAsync(HtmlParser.ServiceReference1.Post post);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/UpdatePost", ReplyAction="http://tempuri.org/IPredictionDataService/UpdatePostResponse")]
+        System.Threading.Tasks.Task UpdatePostAsync(HtmlParser.ServiceReference1.Post post);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/Add", ReplyAction="http://tempuri.org/IPredictionDataService/AddResponse")]
-        void Add(HtmlParser.ServiceReference1.Post post);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddPost", ReplyAction="http://tempuri.org/IPredictionDataService/AddPostResponse")]
+        void AddPost(HtmlParser.ServiceReference1.Post post);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/Add", ReplyAction="http://tempuri.org/IPredictionDataService/AddResponse")]
-        System.Threading.Tasks.Task AddAsync(HtmlParser.ServiceReference1.Post post);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddPost", ReplyAction="http://tempuri.org/IPredictionDataService/AddPostResponse")]
+        System.Threading.Tasks.Task AddPostAsync(HtmlParser.ServiceReference1.Post post);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddExternalContent", ReplyAction="http://tempuri.org/IPredictionDataService/AddExternalContentResponse")]
         void AddExternalContent(HtmlParser.ServiceReference1.ExternalEvaluation post);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddExternalContent", ReplyAction="http://tempuri.org/IPredictionDataService/AddExternalContentResponse")]
         System.Threading.Tasks.Task AddExternalContentAsync(HtmlParser.ServiceReference1.ExternalEvaluation post);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddTouchPoint", ReplyAction="http://tempuri.org/IPredictionDataService/AddTouchPointResponse")]
+        void AddTouchPoint(HtmlParser.ServiceReference1.TouchPoint touchPoint);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddTouchPoint", ReplyAction="http://tempuri.org/IPredictionDataService/AddTouchPointResponse")]
+        System.Threading.Tasks.Task AddTouchPointAsync(HtmlParser.ServiceReference1.TouchPoint touchPoint);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddPerson", ReplyAction="http://tempuri.org/IPredictionDataService/AddPersonResponse")]
+        void AddPerson(HtmlParser.ServiceReference1.Person person);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddPerson", ReplyAction="http://tempuri.org/IPredictionDataService/AddPersonResponse")]
+        System.Threading.Tasks.Task AddPersonAsync(HtmlParser.ServiceReference1.Person person);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetCategoryByLabel", ReplyAction="http://tempuri.org/IPredictionDataService/GetCategoryByLabelResponse")]
+        string GetCategoryByLabel(string label);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetCategoryByLabel", ReplyAction="http://tempuri.org/IPredictionDataService/GetCategoryByLabelResponse")]
+        System.Threading.Tasks.Task<string> GetCategoryByLabelAsync(string label);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -725,36 +1025,36 @@ namespace HtmlParser.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public HtmlParser.ServiceReference1.Post[] GetAll() {
-            return base.Channel.GetAll();
+        public HtmlParser.ServiceReference1.Post[] GetAllPosts() {
+            return base.Channel.GetAllPosts();
         }
         
-        public System.Threading.Tasks.Task<HtmlParser.ServiceReference1.Post[]> GetAllAsync() {
-            return base.Channel.GetAllAsync();
+        public System.Threading.Tasks.Task<HtmlParser.ServiceReference1.Post[]> GetAllPostsAsync() {
+            return base.Channel.GetAllPostsAsync();
         }
         
-        public HtmlParser.ServiceReference1.Post[] GetByStatus(string status) {
-            return base.Channel.GetByStatus(status);
+        public HtmlParser.ServiceReference1.Post[] GetPostByStatus(string status) {
+            return base.Channel.GetPostByStatus(status);
         }
         
-        public System.Threading.Tasks.Task<HtmlParser.ServiceReference1.Post[]> GetByStatusAsync(string status) {
-            return base.Channel.GetByStatusAsync(status);
+        public System.Threading.Tasks.Task<HtmlParser.ServiceReference1.Post[]> GetPostByStatusAsync(string status) {
+            return base.Channel.GetPostByStatusAsync(status);
         }
         
-        public void Update(HtmlParser.ServiceReference1.Post post) {
-            base.Channel.Update(post);
+        public void UpdatePost(HtmlParser.ServiceReference1.Post post) {
+            base.Channel.UpdatePost(post);
         }
         
-        public System.Threading.Tasks.Task UpdateAsync(HtmlParser.ServiceReference1.Post post) {
-            return base.Channel.UpdateAsync(post);
+        public System.Threading.Tasks.Task UpdatePostAsync(HtmlParser.ServiceReference1.Post post) {
+            return base.Channel.UpdatePostAsync(post);
         }
         
-        public void Add(HtmlParser.ServiceReference1.Post post) {
-            base.Channel.Add(post);
+        public void AddPost(HtmlParser.ServiceReference1.Post post) {
+            base.Channel.AddPost(post);
         }
         
-        public System.Threading.Tasks.Task AddAsync(HtmlParser.ServiceReference1.Post post) {
-            return base.Channel.AddAsync(post);
+        public System.Threading.Tasks.Task AddPostAsync(HtmlParser.ServiceReference1.Post post) {
+            return base.Channel.AddPostAsync(post);
         }
         
         public void AddExternalContent(HtmlParser.ServiceReference1.ExternalEvaluation post) {
@@ -763,6 +1063,30 @@ namespace HtmlParser.ServiceReference1 {
         
         public System.Threading.Tasks.Task AddExternalContentAsync(HtmlParser.ServiceReference1.ExternalEvaluation post) {
             return base.Channel.AddExternalContentAsync(post);
+        }
+        
+        public void AddTouchPoint(HtmlParser.ServiceReference1.TouchPoint touchPoint) {
+            base.Channel.AddTouchPoint(touchPoint);
+        }
+        
+        public System.Threading.Tasks.Task AddTouchPointAsync(HtmlParser.ServiceReference1.TouchPoint touchPoint) {
+            return base.Channel.AddTouchPointAsync(touchPoint);
+        }
+        
+        public void AddPerson(HtmlParser.ServiceReference1.Person person) {
+            base.Channel.AddPerson(person);
+        }
+        
+        public System.Threading.Tasks.Task AddPersonAsync(HtmlParser.ServiceReference1.Person person) {
+            return base.Channel.AddPersonAsync(person);
+        }
+        
+        public string GetCategoryByLabel(string label) {
+            return base.Channel.GetCategoryByLabel(label);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetCategoryByLabelAsync(string label) {
+            return base.Channel.GetCategoryByLabelAsync(label);
         }
     }
 }

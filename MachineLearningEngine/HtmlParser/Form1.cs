@@ -18,6 +18,7 @@ namespace HtmlParser
     {
         string fileName = @"D:\WorkingDir\Projetos\DCoder\";
         List<Evaluation> evalList = new List<Evaluation>();
+        List<Rating> ratingList = new List<Rating>();
 
         public Form1()
         {
@@ -60,10 +61,13 @@ namespace HtmlParser
 
         private void btnParseLoveMondays_Click(object sender, EventArgs e)
         {
+           
             var getHtmlWeb = new HtmlWeb();
             int TotalPages = 15;
 
             var document = getHtmlWeb.Load("https://www.lovemondays.com.br/trabalhar-na-ci-and-t");
+
+         
 
             this.GetEvaluation(document);
 
@@ -81,6 +85,8 @@ namespace HtmlParser
 
         private void GetEvaluation(HtmlAgilityPack.HtmlDocument document)
         {
+
+            // Get evaluations
             List<HtmlNode> evaluationList = document.DocumentNode.Descendants().Where(x => (x.Name == "div" && x.Attributes["class"] != null && x.Attributes["class"].Value.Contains("company-review"))).ToList();
 
             foreach (var evaluation in evaluationList)
@@ -93,6 +99,26 @@ namespace HtmlParser
                     if (eval.Pros!=null) 
                         evalList.Add(eval);
                 }
+            }
+
+
+            // Get ratings
+            List<HtmlNode> rateList = document.DocumentNode.Descendants().Where(x => (x.Name == "div" && x.Attributes["class"] != null && x.Attributes["class"].Value.Contains("static-rating-wrapper"))).ToList();
+
+            foreach (var rate in rateList)
+            {
+            //    //foreach (var content in rate.ChildNodes)
+            //    //{
+                var r = new Rating();
+
+                r.CompBenefits = rate.ChildNodes[3].InnerText;
+                r.CompBenefits = rateList.ChildNodes[4].InnerText;
+                r.CompBenefits = rateList.ChildNodes[5].InnerText;
+                r.CompBenefits = rateList.ChildNodes[6].InnerText;
+
+                if (r.CompBenefits != null)
+                    ratingList.Add(r);
+                //}
             }
 
         }
@@ -136,6 +162,7 @@ namespace HtmlParser
         private void SaveToDatabase(string source)
         {
             ServiceReference1.ExternalEvaluation eval = new ExternalEvaluation();
+            int p = 0;
 
             foreach (var item in evalList)
             {
@@ -145,12 +172,40 @@ namespace HtmlParser
                 eval.Recommend = item.Recomend;
                 eval.Source = source;
 
+                eval.Comp_Benefits = GetRate(p).CompBenefits;
+                eval.Culture_Values = GetRate(p).CultureValues;
+                eval.Senior_Management = GetRate(p).SeniorManagement;
+                eval.Work_Life_Balance = GetRate(p).WorkLifeBalance;
+
                 ServiceReference1.PredictionDataServiceClient svc = new PredictionDataServiceClient();
 
                 svc.AddExternalContent(eval);
+
+                p++;
             }
         }
-        
+
+        private Rating GetRate(int pos)
+        {
+            return ratingList[pos];
+        }
+
+        private Rating ParseRating(List<HtmlAgilityPack.HtmlNode> rateList)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                var r = new Rating();
+
+                var rate = rateList[i];
+
+                r.CompBenefits = rate.ChildNodes[3].InnerText;
+            }
+
+
+            return new Rating();
+
+        }
+
         private Evaluation ParseEvaluation(string content)
         {
 
@@ -199,25 +254,38 @@ namespace HtmlParser
 
         #region Glass Door
 
+
         private void btnParseGlassDoor_Click(object sender, EventArgs e)
         {
-            var getHtmlWeb = new HtmlWeb();
-            int TotalPages = 15;
-
-            var document = getHtmlWeb.Load("http://www.glassdoor.com/Reviews/CI-and-T-Reviews-E140265.htm");
-
-            this.GetEvaluationGlassDoor(document);
-
-            for (int i = 1; i <= TotalPages; i++)
-            {
-                document = getHtmlWeb.Load("http://www.glassdoor.com/Reviews/CI-and-T-Reviews-E140265_P" + i.ToString() + ".htm");
-
-                this.GetEvaluation(document);
-            }
-
+            this.GetLocalHtmls();
+            //this.GetOnLineFiles();
             //this.Print();
 
             this.SaveToDatabase("GLASS_DOOR");
+        }
+
+        private void GetOnLineFiles() 
+        {
+            string fileName = @"D:\WorkingDir\Projetos\DCoder\GlassDoor\";
+
+            var getHtmlWeb = new HtmlWeb();
+            
+            int TotalPages = 5;
+
+            var document = getHtmlWeb.Load("http://www.glassdoor.com/Reviews/CI-and-T-Reviews-E140265.htm");
+
+            document.Save(fileName + "1.html");
+
+            this.GetEvaluationGlassDoor(document);
+
+            for (int i = 3; i <= TotalPages; i++)
+            {
+                document = getHtmlWeb.Load("http://www.glassdoor.com/Reviews/CI-and-T-Reviews-E140265_P" + i.ToString() + ".htm");
+
+                document.Save(fileName + i.ToString() + ".html");
+
+                this.GetEvaluationGlassDoor(document);
+            }
         }
 
         private void GetEvaluationGlassDoor(HtmlAgilityPack.HtmlDocument document)
@@ -277,7 +345,7 @@ namespace HtmlParser
         private Evaluation ParseEvaluationGlassDoor(string content)
         {
 
-            string[] tokens = new string[] { "Pros", "Cons", "Advice to Management" };
+            string[] tokens = new string[] { "Pros ", "Cons ", "Advice to Management " };
             Evaluation eval = new Evaluation();
 
             if (content != null)
@@ -294,14 +362,21 @@ namespace HtmlParser
 
                             switch (t)
                             {
-                                case "Pros":
-                                    eval.Pros = line.Replace(t, "").Trim();
+                                case "Pros ":
+                                    eval.Pros = line.Substring(line.IndexOf(t), line.IndexOf("Cons") - line.IndexOf(t)).Trim();
+                                    eval.Pros = eval.Pros.Replace(t, "").Trim();
                                     break;
-                                case "Cons:":
-                                    eval.Cons = line.Replace(t, "").Trim();
+                                case "Cons ":
+                                    if (line.IndexOf("Advice to Management") > 0)
+                                        eval.Cons = line.Substring(line.IndexOf(t), line.IndexOf("Advice to Management") - line.IndexOf(t)).Trim();
+                                    else
+                                        eval.Cons = line.Substring(line.IndexOf(t), line.Length - line.IndexOf(t)).Trim();
+
+                                    eval.Cons = eval.Cons.Replace(t, "").Trim();
                                     break;
-                                case "Advice to Management":
-                                    eval.AdviseToPresident = line.Replace(t, "").Trim();
+                                case "Advice to Management ":
+                                    eval.AdviseToPresident = line.Substring(line.IndexOf(t), line.Length - line.IndexOf(t)).Trim();
+                                    eval.AdviseToPresident = eval.AdviseToPresident.Replace(t, "").Trim();
                                     break;
                                 //case "Recomenda a empresa:":
                                 //    eval.Recomend = line.Replace(t, "").Trim();
@@ -316,6 +391,22 @@ namespace HtmlParser
             }
 
             return eval;
+        }
+
+        private void GetLocalHtmls() 
+        {
+             string path = @"D:\WorkingDir\Projetos\DCoder\GlassDoor\";
+
+            HtmlAgilityPack.HtmlDocument html =  new HtmlAgilityPack.HtmlDocument();
+
+            System.IO.DirectoryInfo dir = new DirectoryInfo(path);
+
+            foreach (var file in dir.GetFiles())
+            {
+                html.Load(file.FullName);
+
+                this.GetEvaluationGlassDoor(html);
+            }
         }
 
         #endregion

@@ -7,29 +7,29 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/DataServices" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IPredictionDataService_GetAll_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAll" />
+  <wsdl:message name="IPredictionDataService_GetAllPosts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPosts" />
   </wsdl:message>
-  <wsdl:message name="IPredictionDataService_GetAll_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  <wsdl:message name="IPredictionDataService_GetAllPosts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPostsResponse" />
   </wsdl:message>
-  <wsdl:message name="IPredictionDataService_GetByStatus_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetByStatus" />
+  <wsdl:message name="IPredictionDataService_GetPostByStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPostByStatus" />
   </wsdl:message>
-  <wsdl:message name="IPredictionDataService_GetByStatus_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetByStatusResponse" />
+  <wsdl:message name="IPredictionDataService_GetPostByStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPostByStatusResponse" />
   </wsdl:message>
-  <wsdl:message name="IPredictionDataService_Update_InputMessage">
-    <wsdl:part name="parameters" element="tns:Update" />
+  <wsdl:message name="IPredictionDataService_UpdatePost_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePost" />
   </wsdl:message>
-  <wsdl:message name="IPredictionDataService_Update_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  <wsdl:message name="IPredictionDataService_UpdatePost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePostResponse" />
   </wsdl:message>
-  <wsdl:message name="IPredictionDataService_Add_InputMessage">
-    <wsdl:part name="parameters" element="tns:Add" />
+  <wsdl:message name="IPredictionDataService_AddPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPost" />
   </wsdl:message>
-  <wsdl:message name="IPredictionDataService_Add_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddResponse" />
+  <wsdl:message name="IPredictionDataService_AddPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPostResponse" />
   </wsdl:message>
   <wsdl:message name="IPredictionDataService_AddExternalContent_InputMessage">
     <wsdl:part name="parameters" element="tns:AddExternalContent" />
@@ -37,32 +37,52 @@
   <wsdl:message name="IPredictionDataService_AddExternalContent_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddExternalContentResponse" />
   </wsdl:message>
+  <wsdl:message name="IPredictionDataService_AddTouchPoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTouchPoint" />
+  </wsdl:message>
+  <wsdl:message name="IPredictionDataService_AddTouchPoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTouchPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPredictionDataService_AddPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPerson" />
+  </wsdl:message>
+  <wsdl:message name="IPredictionDataService_AddPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPersonResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPredictionDataService">
-    <wsdl:operation name="GetAll">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/GetAll" message="tns:IPredictionDataService_GetAll_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/GetAllResponse" message="tns:IPredictionDataService_GetAll_OutputMessage" />
+    <wsdl:operation name="GetAllPosts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/GetAllPosts" message="tns:IPredictionDataService_GetAllPosts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/GetAllPostsResponse" message="tns:IPredictionDataService_GetAllPosts_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetByStatus">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/GetByStatus" message="tns:IPredictionDataService_GetByStatus_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/GetByStatusResponse" message="tns:IPredictionDataService_GetByStatus_OutputMessage" />
+    <wsdl:operation name="GetPostByStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/GetPostByStatus" message="tns:IPredictionDataService_GetPostByStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/GetPostByStatusResponse" message="tns:IPredictionDataService_GetPostByStatus_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Update">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/Update" message="tns:IPredictionDataService_Update_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/UpdateResponse" message="tns:IPredictionDataService_Update_OutputMessage" />
+    <wsdl:operation name="UpdatePost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/UpdatePost" message="tns:IPredictionDataService_UpdatePost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/UpdatePostResponse" message="tns:IPredictionDataService_UpdatePost_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Add">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/Add" message="tns:IPredictionDataService_Add_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/AddResponse" message="tns:IPredictionDataService_Add_OutputMessage" />
+    <wsdl:operation name="AddPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/AddPost" message="tns:IPredictionDataService_AddPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/AddPostResponse" message="tns:IPredictionDataService_AddPost_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddExternalContent">
       <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/AddExternalContent" message="tns:IPredictionDataService_AddExternalContent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/AddExternalContentResponse" message="tns:IPredictionDataService_AddExternalContent_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddTouchPoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/AddTouchPoint" message="tns:IPredictionDataService_AddTouchPoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/AddTouchPointResponse" message="tns:IPredictionDataService_AddTouchPoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/AddPerson" message="tns:IPredictionDataService_AddPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/AddPersonResponse" message="tns:IPredictionDataService_AddPerson_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPredictionDataService" type="tns:IPredictionDataService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetAll">
-      <soap:operation soapAction="http://tempuri.org/IPredictionDataService/GetAll" style="document" />
+    <wsdl:operation name="GetAllPosts">
+      <soap:operation soapAction="http://tempuri.org/IPredictionDataService/GetAllPosts" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -70,8 +90,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetByStatus">
-      <soap:operation soapAction="http://tempuri.org/IPredictionDataService/GetByStatus" style="document" />
+    <wsdl:operation name="GetPostByStatus">
+      <soap:operation soapAction="http://tempuri.org/IPredictionDataService/GetPostByStatus" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -79,8 +99,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Update">
-      <soap:operation soapAction="http://tempuri.org/IPredictionDataService/Update" style="document" />
+    <wsdl:operation name="UpdatePost">
+      <soap:operation soapAction="http://tempuri.org/IPredictionDataService/UpdatePost" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -88,8 +108,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Add">
-      <soap:operation soapAction="http://tempuri.org/IPredictionDataService/Add" style="document" />
+    <wsdl:operation name="AddPost">
+      <soap:operation soapAction="http://tempuri.org/IPredictionDataService/AddPost" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -99,6 +119,24 @@
     </wsdl:operation>
     <wsdl:operation name="AddExternalContent">
       <soap:operation soapAction="http://tempuri.org/IPredictionDataService/AddExternalContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTouchPoint">
+      <soap:operation soapAction="http://tempuri.org/IPredictionDataService/AddTouchPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPerson">
+      <soap:operation soapAction="http://tempuri.org/IPredictionDataService/AddPerson" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

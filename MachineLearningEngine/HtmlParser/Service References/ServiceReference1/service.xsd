@@ -1,52 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/DataServices" />
-  <xs:element name="GetAll">
+  <xs:element name="GetAllPosts">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllResponse">
+  <xs:element name="GetAllPostsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="GetAllResult" nillable="true" type="q1:ArrayOfPost" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="GetAllPostsResult" nillable="true" type="q1:ArrayOfPost" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetByStatus">
+  <xs:element name="GetPostByStatus">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetByStatusResponse">
+  <xs:element name="GetPostByStatusResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="GetByStatusResult" nillable="true" type="q2:ArrayOfPost" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="GetPostByStatusResult" nillable="true" type="q2:ArrayOfPost" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Update">
+  <xs:element name="UpdatePost">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="post" nillable="true" type="q3:Post" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateResponse">
+  <xs:element name="UpdatePostResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="Add">
+  <xs:element name="AddPost">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="post" nillable="true" type="q4:Post" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddResponse">
+  <xs:element name="AddPostResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -61,6 +61,44 @@
   <xs:element name="AddExternalContentResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTouchPoint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="touchPoint" nillable="true" type="q6:TouchPoint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTouchPointResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPerson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="person" nillable="true" type="q7:Person" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPersonResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoryByLabel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="label" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoryByLabelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCategoryByLabelResult" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

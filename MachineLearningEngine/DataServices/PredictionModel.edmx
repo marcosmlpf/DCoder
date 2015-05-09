@@ -5,6 +5,40 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PredictionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\FELIPERC\ONEDRIVE\PUBLIC\ESTUDO\DCODER\ENTERPRISECLIMATE\MACHINELEARNINGENGINE\DATASERVICES\DATABASE1.MDF.dbo.Backup_Post' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Backup_Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="PredictionLabelResult" Type="varchar" MaxLength="50" />
+          <Property Name="PostDate" Type="datetime" />
+          <Property Name="MANAGEMENT_CULTURE" Type="varchar" MaxLength="50" />
+          <Property Name="HIRING_EFFECTIVITY" Type="varchar" MaxLength="50" />
+          <Property Name="TRAINING" Type="varchar" MaxLength="50" />
+          <Property Name="INFRASTRUCTURE" Type="varchar" MaxLength="50" />
+          <Property Name="MANAGEMENT_FEEDBACK" Type="varchar" MaxLength="50" />
+          <Property Name="INNOVATION_CULTURE" Type="varchar" MaxLength="50" />
+          <Property Name="MANAGEMENT_RESPECT" Type="varchar" MaxLength="50" />
+          <Property Name="ENVIR_HEALTHY" Type="varchar" MaxLength="50" />
+          <Property Name="SOCIAL_WORK_BALANCE" Type="varchar" MaxLength="50" />
+          <Property Name="BENEFITS" Type="varchar" MaxLength="50" />
+          <Property Name="PAY" Type="varchar" MaxLength="50" />
+          <Property Name="RECOGNITION" Type="varchar" MaxLength="50" />
+          <Property Name="CAREER_DEVELOPMENT" Type="varchar" MaxLength="50" />
+          <Property Name="NO_DISCRIMINATION" Type="varchar" MaxLength="50" />
+          <Property Name="OPEN_COMMUNICATION" Type="varchar" MaxLength="50" />
+          <Property Name="PURPOSE" Type="varchar" MaxLength="50" />
+          <Property Name="FELLOWSHIP" Type="varchar" MaxLength="50" />
+          <Property Name="CELEBRATION" Type="varchar" MaxLength="50" />
+          <Property Name="COLLABORATION_CULTURE" Type="varchar" MaxLength="50" />
+          <Property Name="PersonTitle" Type="nchar" MaxLength="100" />
+          <Property Name="CardId" Type="nchar" MaxLength="50" />
+          <Property Name="ProviderUserId" Type="nchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
@@ -27,6 +61,20 @@
           <Property Name="PredictionLabelResult" Type="varchar" MaxLength="100" />
           <Property Name="UserProfile" Type="varchar(max)" />
           <Property Name="Source" Type="varchar" MaxLength="100" />
+          <Property Name="Comp_Benefits" Type="char" MaxLength="1" />
+          <Property Name="Work_Life_Balance" Type="char" MaxLength="1" />
+          <Property Name="Senior_Management" Type="char" MaxLength="1" />
+          <Property Name="Culture_Values" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonId" Type="varchar" MaxLength="50" />
+          <Property Name="displayName" Type="varchar" MaxLength="150" />
+          <Property Name="Position" Type="varchar" MaxLength="150" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -70,6 +118,16 @@
           <Property Name="CategoryId" Type="int" />
           <Property Name="Sentiment" Type="char" MaxLength="1" />
         </EntityType>
+        <EntityType Name="TouchPoint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonId" Type="varchar" MaxLength="50" />
+          <Property Name="EventType" Type="varchar" MaxLength="50" />
+          <Property Name="OccurrenceDate" Type="datetime" />
+          <Property Name="CardId" Type="varchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK_CATEGORY">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="PredictionLabel" Type="Self.PredictionLabel" Multiplicity="*" />
@@ -85,8 +143,41 @@
         <EntityContainer Name="PredictionModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ExternalEvaluation" EntityType="Self.ExternalEvaluation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PredictionLabel" EntityType="Self.PredictionLabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TouchPoint" EntityType="Self.TouchPoint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Backup_Post" EntityType="Self.Backup_Post" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Backup_Post].[Id] AS [Id], 
+    [Backup_Post].[Description] AS [Description], 
+    [Backup_Post].[Status] AS [Status], 
+    [Backup_Post].[PredictionLabelResult] AS [PredictionLabelResult], 
+    [Backup_Post].[PostDate] AS [PostDate], 
+    [Backup_Post].[MANAGEMENT_CULTURE] AS [MANAGEMENT_CULTURE], 
+    [Backup_Post].[HIRING_EFFECTIVITY] AS [HIRING_EFFECTIVITY], 
+    [Backup_Post].[TRAINING] AS [TRAINING], 
+    [Backup_Post].[INFRASTRUCTURE] AS [INFRASTRUCTURE], 
+    [Backup_Post].[MANAGEMENT_FEEDBACK] AS [MANAGEMENT_FEEDBACK], 
+    [Backup_Post].[INNOVATION_CULTURE] AS [INNOVATION_CULTURE], 
+    [Backup_Post].[MANAGEMENT_RESPECT] AS [MANAGEMENT_RESPECT], 
+    [Backup_Post].[ENVIR_HEALTHY] AS [ENVIR_HEALTHY], 
+    [Backup_Post].[SOCIAL_WORK_BALANCE] AS [SOCIAL_WORK_BALANCE], 
+    [Backup_Post].[BENEFITS] AS [BENEFITS], 
+    [Backup_Post].[PAY] AS [PAY], 
+    [Backup_Post].[RECOGNITION] AS [RECOGNITION], 
+    [Backup_Post].[CAREER_DEVELOPMENT] AS [CAREER_DEVELOPMENT], 
+    [Backup_Post].[NO_DISCRIMINATION] AS [NO_DISCRIMINATION], 
+    [Backup_Post].[OPEN_COMMUNICATION] AS [OPEN_COMMUNICATION], 
+    [Backup_Post].[PURPOSE] AS [PURPOSE], 
+    [Backup_Post].[FELLOWSHIP] AS [FELLOWSHIP], 
+    [Backup_Post].[CELEBRATION] AS [CELEBRATION], 
+    [Backup_Post].[COLLABORATION_CULTURE] AS [COLLABORATION_CULTURE], 
+    [Backup_Post].[PersonTitle] AS [PersonTitle], 
+    [Backup_Post].[CardId] AS [CardId], 
+    [Backup_Post].[ProviderUserId] AS [ProviderUserId]
+    FROM [dbo].[Backup_Post] AS [Backup_Post]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_CATEGORY" Association="Self.FK_CATEGORY">
             <End Role="Category" EntitySet="Category" />
             <End Role="PredictionLabel" EntitySet="PredictionLabel" />
@@ -105,6 +196,9 @@
             <End Role="PredictionLabel" EntitySet="PredictionLabel" />
           </AssociationSet>
           <EntitySet Name="ExternalEvaluation" EntityType="PredictionModel.ExternalEvaluation" />
+          <EntitySet Name="TouchPoint" EntityType="PredictionModel.TouchPoint" />
+          <EntitySet Name="Person" EntityType="PredictionModel.Person" />
+          <EntitySet Name="Backup_Post" EntityType="PredictionModel.Backup_Post" />
         </EntityContainer>
         <EntityType Name="Post">
           <Key>
@@ -184,6 +278,62 @@
           <Property Name="PredictionLabelResult" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="UserProfile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Source" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Comp_Benefits" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Work_Life_Balance" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Senior_Management" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Culture_Values" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TouchPoint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EventType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OccurrenceDate" Type="DateTime" Precision="3" />
+          <Property Name="CardId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="displayName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Backup_Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PredictionLabelResult" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostDate" Type="DateTime" Precision="3" />
+          <Property Name="MANAGEMENT_CULTURE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HIRING_EFFECTIVITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TRAINING" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INFRASTRUCTURE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MANAGEMENT_FEEDBACK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INNOVATION_CULTURE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MANAGEMENT_RESPECT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ENVIR_HEALTHY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SOCIAL_WORK_BALANCE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BENEFITS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RECOGNITION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CAREER_DEVELOPMENT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NO_DISCRIMINATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OPEN_COMMUNICATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PURPOSE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FELLOWSHIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CELEBRATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COLLABORATION_CULTURE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PersonTitle" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="CardId" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="ProviderUserId" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -247,6 +397,10 @@
           <EntitySetMapping Name="ExternalEvaluation">
             <EntityTypeMapping TypeName="PredictionModel.ExternalEvaluation">
               <MappingFragment StoreEntitySet="ExternalEvaluation">
+                <ScalarProperty Name="Culture_Values" ColumnName="Culture_Values" />
+                <ScalarProperty Name="Senior_Management" ColumnName="Senior_Management" />
+                <ScalarProperty Name="Work_Life_Balance" ColumnName="Work_Life_Balance" />
+                <ScalarProperty Name="Comp_Benefits" ColumnName="Comp_Benefits" />
                 <ScalarProperty Name="Source" ColumnName="Source" />
                 <ScalarProperty Name="UserProfile" ColumnName="UserProfile" />
                 <ScalarProperty Name="PredictionLabelResult" ColumnName="PredictionLabelResult" />
@@ -256,6 +410,61 @@
                 <ScalarProperty Name="AdiceToPresident" ColumnName="AdiceToPresident" />
                 <ScalarProperty Name="Cons" ColumnName="Cons" />
                 <ScalarProperty Name="Pos" ColumnName="Pos" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TouchPoint">
+            <EntityTypeMapping TypeName="PredictionModel.TouchPoint">
+              <MappingFragment StoreEntitySet="TouchPoint">
+                <ScalarProperty Name="CardId" ColumnName="CardId" />
+                <ScalarProperty Name="OccurrenceDate" ColumnName="OccurrenceDate" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Person">
+            <EntityTypeMapping TypeName="PredictionModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="displayName" ColumnName="displayName" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Backup_Post">
+            <EntityTypeMapping TypeName="PredictionModel.Backup_Post">
+              <MappingFragment StoreEntitySet="Backup_Post">
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="CardId" ColumnName="CardId" />
+                <ScalarProperty Name="PersonTitle" ColumnName="PersonTitle" />
+                <ScalarProperty Name="COLLABORATION_CULTURE" ColumnName="COLLABORATION_CULTURE" />
+                <ScalarProperty Name="CELEBRATION" ColumnName="CELEBRATION" />
+                <ScalarProperty Name="FELLOWSHIP" ColumnName="FELLOWSHIP" />
+                <ScalarProperty Name="PURPOSE" ColumnName="PURPOSE" />
+                <ScalarProperty Name="OPEN_COMMUNICATION" ColumnName="OPEN_COMMUNICATION" />
+                <ScalarProperty Name="NO_DISCRIMINATION" ColumnName="NO_DISCRIMINATION" />
+                <ScalarProperty Name="CAREER_DEVELOPMENT" ColumnName="CAREER_DEVELOPMENT" />
+                <ScalarProperty Name="RECOGNITION" ColumnName="RECOGNITION" />
+                <ScalarProperty Name="PAY" ColumnName="PAY" />
+                <ScalarProperty Name="BENEFITS" ColumnName="BENEFITS" />
+                <ScalarProperty Name="SOCIAL_WORK_BALANCE" ColumnName="SOCIAL_WORK_BALANCE" />
+                <ScalarProperty Name="ENVIR_HEALTHY" ColumnName="ENVIR_HEALTHY" />
+                <ScalarProperty Name="MANAGEMENT_RESPECT" ColumnName="MANAGEMENT_RESPECT" />
+                <ScalarProperty Name="INNOVATION_CULTURE" ColumnName="INNOVATION_CULTURE" />
+                <ScalarProperty Name="MANAGEMENT_FEEDBACK" ColumnName="MANAGEMENT_FEEDBACK" />
+                <ScalarProperty Name="INFRASTRUCTURE" ColumnName="INFRASTRUCTURE" />
+                <ScalarProperty Name="TRAINING" ColumnName="TRAINING" />
+                <ScalarProperty Name="HIRING_EFFECTIVITY" ColumnName="HIRING_EFFECTIVITY" />
+                <ScalarProperty Name="MANAGEMENT_CULTURE" ColumnName="MANAGEMENT_CULTURE" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+                <ScalarProperty Name="PredictionLabelResult" ColumnName="PredictionLabelResult" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

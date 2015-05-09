@@ -508,6 +508,9 @@ namespace JsonValue.ServiceReference1 {
         private string RecommendField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SourceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UserProfileField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -625,6 +628,19 @@ namespace JsonValue.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Source {
+            get {
+                return this.SourceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SourceField, value) != true)) {
+                    this.SourceField = value;
+                    this.RaisePropertyChanged("Source");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string UserProfile {
             get {
                 return this.UserProfileField;
@@ -647,24 +663,248 @@ namespace JsonValue.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TouchPoint", Namespace="http://schemas.datacontract.org/2004/07/DataServices")]
+    [System.SerializableAttribute()]
+    public partial class TouchPoint : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CardIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EventTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> OccurrenceDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PersonIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CardId {
+            get {
+                return this.CardIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CardIdField, value) != true)) {
+                    this.CardIdField = value;
+                    this.RaisePropertyChanged("CardId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventType {
+            get {
+                return this.EventTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventTypeField, value) != true)) {
+                    this.EventTypeField = value;
+                    this.RaisePropertyChanged("EventType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> OccurrenceDate {
+            get {
+                return this.OccurrenceDateField;
+            }
+            set {
+                if ((this.OccurrenceDateField.Equals(value) != true)) {
+                    this.OccurrenceDateField = value;
+                    this.RaisePropertyChanged("OccurrenceDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonId {
+            get {
+                return this.PersonIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonIdField, value) != true)) {
+                    this.PersonIdField = value;
+                    this.RaisePropertyChanged("PersonId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Person", Namespace="http://schemas.datacontract.org/2004/07/DataServices")]
+    [System.SerializableAttribute()]
+    public partial class Person : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PersonIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PositionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string displayNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string genderField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonId {
+            get {
+                return this.PersonIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonIdField, value) != true)) {
+                    this.PersonIdField = value;
+                    this.RaisePropertyChanged("PersonId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Position {
+            get {
+                return this.PositionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PositionField, value) != true)) {
+                    this.PositionField = value;
+                    this.RaisePropertyChanged("Position");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string displayName {
+            get {
+                return this.displayNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.displayNameField, value) != true)) {
+                    this.displayNameField = value;
+                    this.RaisePropertyChanged("displayName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string gender {
+            get {
+                return this.genderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.genderField, value) != true)) {
+                    this.genderField = value;
+                    this.RaisePropertyChanged("gender");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IPredictionDataService")]
     public interface IPredictionDataService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetAll", ReplyAction="http://tempuri.org/IPredictionDataService/GetAllResponse")]
-        JsonValue.ServiceReference1.Post[] GetAll();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetAllPosts", ReplyAction="http://tempuri.org/IPredictionDataService/GetAllPostsResponse")]
+        JsonValue.ServiceReference1.Post[] GetAllPosts();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetByStatus", ReplyAction="http://tempuri.org/IPredictionDataService/GetByStatusResponse")]
-        JsonValue.ServiceReference1.Post[] GetByStatus(string status);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetPostByStatus", ReplyAction="http://tempuri.org/IPredictionDataService/GetPostByStatusResponse")]
+        JsonValue.ServiceReference1.Post[] GetPostByStatus(string status);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/Update", ReplyAction="http://tempuri.org/IPredictionDataService/UpdateResponse")]
-        void Update(JsonValue.ServiceReference1.Post post);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/UpdatePost", ReplyAction="http://tempuri.org/IPredictionDataService/UpdatePostResponse")]
+        void UpdatePost(JsonValue.ServiceReference1.Post post);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/Add", ReplyAction="http://tempuri.org/IPredictionDataService/AddResponse")]
-        void Add(JsonValue.ServiceReference1.Post post);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddPost", ReplyAction="http://tempuri.org/IPredictionDataService/AddPostResponse")]
+        void AddPost(JsonValue.ServiceReference1.Post post);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddExternalContent", ReplyAction="http://tempuri.org/IPredictionDataService/AddExternalContentResponse")]
         void AddExternalContent(JsonValue.ServiceReference1.ExternalEvaluation post);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddTouchPoint", ReplyAction="http://tempuri.org/IPredictionDataService/AddTouchPointResponse")]
+        void AddTouchPoint(JsonValue.ServiceReference1.TouchPoint touchPoint);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddPerson", ReplyAction="http://tempuri.org/IPredictionDataService/AddPersonResponse")]
+        void AddPerson(JsonValue.ServiceReference1.Person person);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -694,24 +934,32 @@ namespace JsonValue.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public JsonValue.ServiceReference1.Post[] GetAll() {
-            return base.Channel.GetAll();
+        public JsonValue.ServiceReference1.Post[] GetAllPosts() {
+            return base.Channel.GetAllPosts();
         }
         
-        public JsonValue.ServiceReference1.Post[] GetByStatus(string status) {
-            return base.Channel.GetByStatus(status);
+        public JsonValue.ServiceReference1.Post[] GetPostByStatus(string status) {
+            return base.Channel.GetPostByStatus(status);
         }
         
-        public void Update(JsonValue.ServiceReference1.Post post) {
-            base.Channel.Update(post);
+        public void UpdatePost(JsonValue.ServiceReference1.Post post) {
+            base.Channel.UpdatePost(post);
         }
         
-        public void Add(JsonValue.ServiceReference1.Post post) {
-            base.Channel.Add(post);
+        public void AddPost(JsonValue.ServiceReference1.Post post) {
+            base.Channel.AddPost(post);
         }
         
         public void AddExternalContent(JsonValue.ServiceReference1.ExternalEvaluation post) {
             base.Channel.AddExternalContent(post);
+        }
+        
+        public void AddTouchPoint(JsonValue.ServiceReference1.TouchPoint touchPoint) {
+            base.Channel.AddTouchPoint(touchPoint);
+        }
+        
+        public void AddPerson(JsonValue.ServiceReference1.Person person) {
+            base.Channel.AddPerson(person);
         }
     }
 }

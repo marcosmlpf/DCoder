@@ -16,15 +16,18 @@ namespace DataServices
 
         private PostRepository postRepostitory;
         private ExternalEvaluationRepository externalEvaluationRepository;
+        private TouchPointRepository touchPointRepository;
+        private PersonRepository personRepository;
+        private CategoryRepository categoryRepository;
 
-        public IEnumerable<Post> GetAll()
+        public IEnumerable<Post> GetAllPosts()
         {
             postRepostitory = new PostRepository(databaseFactory);
 
             return this.postRepostitory.GetAll();
         }
 
-        public void Update(Post post)
+        public void UpdatePost(Post post)
         {
             postRepostitory = new PostRepository(databaseFactory);
             unitofWork = new UnitOfWork(databaseFactory);
@@ -35,14 +38,14 @@ namespace DataServices
 
         }
 
-        public IEnumerable<Post> GetByStatus(string status)
+        public IEnumerable<Post> GetPostByStatus(string status)
         {
             postRepostitory = new PostRepository(databaseFactory);
 
             return this.postRepostitory.GetByStatus(status);
         }
 
-        public void Add(Post post)
+        public void AddPost(Post post)
         {
             postRepostitory = new PostRepository(databaseFactory);
             unitofWork = new UnitOfWork(databaseFactory);
@@ -56,11 +59,43 @@ namespace DataServices
         public void AddExternalContent(ExternalEvaluation evaluation)
         {
             externalEvaluationRepository = new ExternalEvaluationRepository(databaseFactory);
+
             unitofWork = new UnitOfWork(databaseFactory);
 
             externalEvaluationRepository.Add(evaluation);
 
             unitofWork.Commit();
+        }
+
+        public void AddTouchPoint(TouchPoint touchPoint)
+        {
+            touchPointRepository = new TouchPointRepository(databaseFactory);
+
+            unitofWork = new UnitOfWork(databaseFactory);
+
+            touchPointRepository.Add(touchPoint);
+
+            unitofWork.Commit();
+
+        }
+
+        public void AddPerson(Person person)
+        {
+            personRepository = new PersonRepository(databaseFactory);
+
+            unitofWork = new UnitOfWork(databaseFactory);
+
+            personRepository.Add(person);
+
+            unitofWork.Commit();
+
+        }
+
+        public string GetCategoryByLabel(string label)
+        {
+            categoryRepository = new CategoryRepository(databaseFactory);
+
+            return categoryRepository.GetCategoryByLabel(label);
         }
     }
 }

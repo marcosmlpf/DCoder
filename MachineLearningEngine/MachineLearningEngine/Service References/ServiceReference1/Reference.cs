@@ -435,21 +435,378 @@ namespace MachineLearningEngine.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ExternalEvaluation", Namespace="http://schemas.datacontract.org/2004/07/DataServices")]
+    public partial class ExternalEvaluation : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string AdiceToPresidentField;
+        
+        private string CommentField;
+        
+        private string ConsField;
+        
+        private int IdField;
+        
+        private string PosField;
+        
+        private string PredictionLabelResultField;
+        
+        private string RatingField;
+        
+        private string RecommendField;
+        
+        private string SourceField;
+        
+        private string UserProfileField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdiceToPresident {
+            get {
+                return this.AdiceToPresidentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdiceToPresidentField, value) != true)) {
+                    this.AdiceToPresidentField = value;
+                    this.RaisePropertyChanged("AdiceToPresident");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Comment {
+            get {
+                return this.CommentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CommentField, value) != true)) {
+                    this.CommentField = value;
+                    this.RaisePropertyChanged("Comment");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cons {
+            get {
+                return this.ConsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ConsField, value) != true)) {
+                    this.ConsField = value;
+                    this.RaisePropertyChanged("Cons");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Pos {
+            get {
+                return this.PosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PosField, value) != true)) {
+                    this.PosField = value;
+                    this.RaisePropertyChanged("Pos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PredictionLabelResult {
+            get {
+                return this.PredictionLabelResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PredictionLabelResultField, value) != true)) {
+                    this.PredictionLabelResultField = value;
+                    this.RaisePropertyChanged("PredictionLabelResult");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Rating {
+            get {
+                return this.RatingField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RatingField, value) != true)) {
+                    this.RatingField = value;
+                    this.RaisePropertyChanged("Rating");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Recommend {
+            get {
+                return this.RecommendField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RecommendField, value) != true)) {
+                    this.RecommendField = value;
+                    this.RaisePropertyChanged("Recommend");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Source {
+            get {
+                return this.SourceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SourceField, value) != true)) {
+                    this.SourceField = value;
+                    this.RaisePropertyChanged("Source");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserProfile {
+            get {
+                return this.UserProfileField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserProfileField, value) != true)) {
+                    this.UserProfileField = value;
+                    this.RaisePropertyChanged("UserProfile");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TouchPoint", Namespace="http://schemas.datacontract.org/2004/07/DataServices")]
+    public partial class TouchPoint : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string CardIdField;
+        
+        private string EventTypeField;
+        
+        private int IdField;
+        
+        private System.Nullable<System.DateTime> OccurrenceDateField;
+        
+        private string PersonIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CardId {
+            get {
+                return this.CardIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CardIdField, value) != true)) {
+                    this.CardIdField = value;
+                    this.RaisePropertyChanged("CardId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EventType {
+            get {
+                return this.EventTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EventTypeField, value) != true)) {
+                    this.EventTypeField = value;
+                    this.RaisePropertyChanged("EventType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> OccurrenceDate {
+            get {
+                return this.OccurrenceDateField;
+            }
+            set {
+                if ((this.OccurrenceDateField.Equals(value) != true)) {
+                    this.OccurrenceDateField = value;
+                    this.RaisePropertyChanged("OccurrenceDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonId {
+            get {
+                return this.PersonIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonIdField, value) != true)) {
+                    this.PersonIdField = value;
+                    this.RaisePropertyChanged("PersonId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Person", Namespace="http://schemas.datacontract.org/2004/07/DataServices")]
+    public partial class Person : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int IdField;
+        
+        private string PersonIdField;
+        
+        private string PositionField;
+        
+        private string displayNameField;
+        
+        private string genderField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PersonId {
+            get {
+                return this.PersonIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonIdField, value) != true)) {
+                    this.PersonIdField = value;
+                    this.RaisePropertyChanged("PersonId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Position {
+            get {
+                return this.PositionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PositionField, value) != true)) {
+                    this.PositionField = value;
+                    this.RaisePropertyChanged("Position");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string displayName {
+            get {
+                return this.displayNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.displayNameField, value) != true)) {
+                    this.displayNameField = value;
+                    this.RaisePropertyChanged("displayName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string gender {
+            get {
+                return this.genderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.genderField, value) != true)) {
+                    this.genderField = value;
+                    this.RaisePropertyChanged("gender");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IPredictionDataService")]
     public interface IPredictionDataService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetAll", ReplyAction="http://tempuri.org/IPredictionDataService/GetAllResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MachineLearningEngine.ServiceReference1.Post>> GetAllAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetAllPosts", ReplyAction="http://tempuri.org/IPredictionDataService/GetAllPostsResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MachineLearningEngine.ServiceReference1.Post>> GetAllPostsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetByStatus", ReplyAction="http://tempuri.org/IPredictionDataService/GetByStatusResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MachineLearningEngine.ServiceReference1.Post>> GetByStatusAsync(string status);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetPostByStatus", ReplyAction="http://tempuri.org/IPredictionDataService/GetPostByStatusResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MachineLearningEngine.ServiceReference1.Post>> GetPostByStatusAsync(string status);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/Update", ReplyAction="http://tempuri.org/IPredictionDataService/UpdateResponse")]
-        System.Threading.Tasks.Task UpdateAsync(MachineLearningEngine.ServiceReference1.Post post);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/UpdatePost", ReplyAction="http://tempuri.org/IPredictionDataService/UpdatePostResponse")]
+        System.Threading.Tasks.Task UpdatePostAsync(MachineLearningEngine.ServiceReference1.Post post);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/Add", ReplyAction="http://tempuri.org/IPredictionDataService/AddResponse")]
-        System.Threading.Tasks.Task AddAsync(MachineLearningEngine.ServiceReference1.Post post);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddPost", ReplyAction="http://tempuri.org/IPredictionDataService/AddPostResponse")]
+        System.Threading.Tasks.Task AddPostAsync(MachineLearningEngine.ServiceReference1.Post post);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddExternalContent", ReplyAction="http://tempuri.org/IPredictionDataService/AddExternalContentResponse")]
+        System.Threading.Tasks.Task AddExternalContentAsync(MachineLearningEngine.ServiceReference1.ExternalEvaluation post);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddTouchPoint", ReplyAction="http://tempuri.org/IPredictionDataService/AddTouchPointResponse")]
+        System.Threading.Tasks.Task AddTouchPointAsync(MachineLearningEngine.ServiceReference1.TouchPoint touchPoint);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddPerson", ReplyAction="http://tempuri.org/IPredictionDataService/AddPersonResponse")]
+        System.Threading.Tasks.Task AddPersonAsync(MachineLearningEngine.ServiceReference1.Person person);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetCategoryByLabel", ReplyAction="http://tempuri.org/IPredictionDataService/GetCategoryByLabelResponse")]
+        System.Threading.Tasks.Task<string> GetCategoryByLabelAsync(string label);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -495,20 +852,36 @@ namespace MachineLearningEngine.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MachineLearningEngine.ServiceReference1.Post>> GetAllAsync() {
-            return base.Channel.GetAllAsync();
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MachineLearningEngine.ServiceReference1.Post>> GetAllPostsAsync() {
+            return base.Channel.GetAllPostsAsync();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MachineLearningEngine.ServiceReference1.Post>> GetByStatusAsync(string status) {
-            return base.Channel.GetByStatusAsync(status);
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MachineLearningEngine.ServiceReference1.Post>> GetPostByStatusAsync(string status) {
+            return base.Channel.GetPostByStatusAsync(status);
         }
         
-        public System.Threading.Tasks.Task UpdateAsync(MachineLearningEngine.ServiceReference1.Post post) {
-            return base.Channel.UpdateAsync(post);
+        public System.Threading.Tasks.Task UpdatePostAsync(MachineLearningEngine.ServiceReference1.Post post) {
+            return base.Channel.UpdatePostAsync(post);
         }
         
-        public System.Threading.Tasks.Task AddAsync(MachineLearningEngine.ServiceReference1.Post post) {
-            return base.Channel.AddAsync(post);
+        public System.Threading.Tasks.Task AddPostAsync(MachineLearningEngine.ServiceReference1.Post post) {
+            return base.Channel.AddPostAsync(post);
+        }
+        
+        public System.Threading.Tasks.Task AddExternalContentAsync(MachineLearningEngine.ServiceReference1.ExternalEvaluation post) {
+            return base.Channel.AddExternalContentAsync(post);
+        }
+        
+        public System.Threading.Tasks.Task AddTouchPointAsync(MachineLearningEngine.ServiceReference1.TouchPoint touchPoint) {
+            return base.Channel.AddTouchPointAsync(touchPoint);
+        }
+        
+        public System.Threading.Tasks.Task AddPersonAsync(MachineLearningEngine.ServiceReference1.Person person) {
+            return base.Channel.AddPersonAsync(person);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetCategoryByLabelAsync(string label) {
+            return base.Channel.GetCategoryByLabelAsync(label);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

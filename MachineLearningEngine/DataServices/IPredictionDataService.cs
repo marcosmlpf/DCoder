@@ -11,18 +11,27 @@ namespace DataServices
     public interface IPredictionDataService
     {
         [OperationContract]
-        IEnumerable<Post> GetAll();
+        IEnumerable<Post> GetAllPosts();
 
         [OperationContract]
-        IEnumerable<Post> GetByStatus(string status);
+        IEnumerable<Post> GetPostByStatus(string status);
 
         [OperationContract]
-        void Update(Post post);
+        void UpdatePost(Post post);
 
         [OperationContract]
-        void Add(Post post);
+        void AddPost(Post post);
 
         [OperationContract]
         void AddExternalContent(ExternalEvaluation post);
+
+        [OperationContract]
+        void AddTouchPoint(TouchPoint touchPoint);
+
+        [OperationContract]
+        void AddPerson(Person person);
+
+        [OperationContract]
+        string GetCategoryByLabel(string label);
     }
 }
