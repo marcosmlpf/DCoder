@@ -111,13 +111,13 @@ namespace HtmlParser
             //    //{
                 var r = new Rating();
 
-                r.CompBenefits = rate.ChildNodes[3].InnerText;
-                r.CompBenefits = rateList.ChildNodes[4].InnerText;
-                r.CompBenefits = rateList.ChildNodes[5].InnerText;
-                r.CompBenefits = rateList.ChildNodes[6].InnerText;
+                //r.CompBenefits = rate.ChildNodes[3].InnerText;
+                //r.CompBenefits = rateList.ChildNodes[4].InnerText;
+                //r.CompBenefits = rateList.ChildNodes[5].InnerText;
+                //r.CompBenefits = rateList.ChildNodes[6].InnerText;
 
-                if (r.CompBenefits != null)
-                    ratingList.Add(r);
+                //if (r.CompBenefits != null)
+                //    ratingList.Add(r);
                 //}
             }
 

@@ -10,7 +10,7 @@
     <Grid Background="#FF56AAF3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="900"/>
+            <ColumnDefinition Width="1100"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -19,16 +19,16 @@
             <RowDefinition Height="540"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Rectangle Width="120" Height="140" HorizontalAlignment="Left" x:Name="cornerRectangle"/>
+        <Rectangle Width="60" Height="140" HorizontalAlignment="Left" x:Name="cornerRectangle"/>
         <Grid Grid.Row="1"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="56" Margin="0,49,0,0" Width="621">
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Segoe UI Light" FontSize="56" Margin="0,49,0,0" Width="721">
         	<Run Text="Prediction API Engine"/>
         </TextBlock>
 
         <Grid Grid.Row="1" Grid.Column="1" Background="White" Margin="0 0 0 20">
             <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtMsg" Text="" Grid.ColumnSpan="2" />
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="1" Background="White" Margin="0 0 0 20">
+        <Grid Grid.Row="2" Grid.Column="1" Background="White" Margin="0 0 0 0">
             
             <!--<TextBox x:Name="txtLog" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible" IsReadOnly="True" TextWrapping="Wrap"/>-->
             <ListBox Name="lstLog" ScrollViewer.VerticalScrollMode="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible" ></ListBox>
@@ -54,6 +54,11 @@
             	x:Name="btnTagCloudByCategory" 
             	BorderThickness="0" Background="Blue"
             	Padding="10" Width="180" Click="btnTagCloudByCategory_Click" Margin="83,0"/>
+            <Button  HorizontalAlignment="Center"
+            	Content="Tag Cloud Love Mondays" VerticalAlignment="Center"
+            	x:Name="btnTagCloudLM" 
+            	BorderThickness="0" Background="Blue"
+            	Padding="10" Width="180" Click="btnTagCloudByLM_Click" Margin="83,0"/>
         </StackPanel>
     </Grid>
 </Page>

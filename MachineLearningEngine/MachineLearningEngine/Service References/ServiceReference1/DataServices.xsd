@@ -42,17 +42,27 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="AdiceToPresident" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comp_Benefits" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Cons" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Culture_Values" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Pos" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PredictionLabelResult" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Rating" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Recommend" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Senior_Management" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UserProfile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Work_Life_Balance" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ExternalEvaluation" nillable="true" type="tns:ExternalEvaluation" />
+  <xs:complexType name="ArrayOfExternalEvaluation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExternalEvaluation" nillable="true" type="tns:ExternalEvaluation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExternalEvaluation" nillable="true" type="tns:ArrayOfExternalEvaluation" />
   <xs:complexType name="TouchPoint">
     <xs:sequence>
       <xs:element minOccurs="0" name="CardId" nillable="true" type="xs:string" />

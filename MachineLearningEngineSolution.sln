@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLoad", "MachineLearning
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalConnector", "MachineLearningEngine\HtmlParser\ExternalConnector.csproj", "{35A79B46-9E59-48EB-A6B9-AED08B9DE4EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallDCoder", "MachineLearningEngine\CallDCoder\CallDCoder.csproj", "{3EE0A918-3987-45A4-ACBF-6450342EEC64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,16 @@ Global
 		{35A79B46-9E59-48EB-A6B9-AED08B9DE4EC}.Release|ARM.ActiveCfg = Release|Any CPU
 		{35A79B46-9E59-48EB-A6B9-AED08B9DE4EC}.Release|x64.ActiveCfg = Release|Any CPU
 		{35A79B46-9E59-48EB-A6B9-AED08B9DE4EC}.Release|x86.ActiveCfg = Release|Any CPU
+		{3EE0A918-3987-45A4-ACBF-6450342EEC64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE0A918-3987-45A4-ACBF-6450342EEC64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE0A918-3987-45A4-ACBF-6450342EEC64}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{3EE0A918-3987-45A4-ACBF-6450342EEC64}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3EE0A918-3987-45A4-ACBF-6450342EEC64}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3EE0A918-3987-45A4-ACBF-6450342EEC64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE0A918-3987-45A4-ACBF-6450342EEC64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EE0A918-3987-45A4-ACBF-6450342EEC64}.Release|ARM.ActiveCfg = Release|Any CPU
+		{3EE0A918-3987-45A4-ACBF-6450342EEC64}.Release|x64.ActiveCfg = Release|Any CPU
+		{3EE0A918-3987-45A4-ACBF-6450342EEC64}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

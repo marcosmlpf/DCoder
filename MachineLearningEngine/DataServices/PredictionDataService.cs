@@ -97,5 +97,13 @@ namespace DataServices
 
             return categoryRepository.GetCategoryByLabel(label);
         }
+
+        IEnumerable<ExternalEvaluation> IPredictionDataService.GetExternalContent(string source)
+        {
+            externalEvaluationRepository = new ExternalEvaluationRepository(databaseFactory);
+
+            return externalEvaluationRepository.GetAll().Where(s => s.Source == source);
+
+        }
     }
 }

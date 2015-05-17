@@ -444,7 +444,11 @@ namespace MachineLearningEngine.ServiceReference1 {
         
         private string CommentField;
         
+        private string Comp_BenefitsField;
+        
         private string ConsField;
+        
+        private string Culture_ValuesField;
         
         private int IdField;
         
@@ -456,9 +460,13 @@ namespace MachineLearningEngine.ServiceReference1 {
         
         private string RecommendField;
         
+        private string Senior_ManagementField;
+        
         private string SourceField;
         
         private string UserProfileField;
+        
+        private string Work_Life_BalanceField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AdiceToPresident {
@@ -487,6 +495,19 @@ namespace MachineLearningEngine.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Comp_Benefits {
+            get {
+                return this.Comp_BenefitsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Comp_BenefitsField, value) != true)) {
+                    this.Comp_BenefitsField = value;
+                    this.RaisePropertyChanged("Comp_Benefits");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Cons {
             get {
                 return this.ConsField;
@@ -495,6 +516,19 @@ namespace MachineLearningEngine.ServiceReference1 {
                 if ((object.ReferenceEquals(this.ConsField, value) != true)) {
                     this.ConsField = value;
                     this.RaisePropertyChanged("Cons");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Culture_Values {
+            get {
+                return this.Culture_ValuesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Culture_ValuesField, value) != true)) {
+                    this.Culture_ValuesField = value;
+                    this.RaisePropertyChanged("Culture_Values");
                 }
             }
         }
@@ -565,6 +599,19 @@ namespace MachineLearningEngine.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Senior_Management {
+            get {
+                return this.Senior_ManagementField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Senior_ManagementField, value) != true)) {
+                    this.Senior_ManagementField = value;
+                    this.RaisePropertyChanged("Senior_Management");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Source {
             get {
                 return this.SourceField;
@@ -586,6 +633,19 @@ namespace MachineLearningEngine.ServiceReference1 {
                 if ((object.ReferenceEquals(this.UserProfileField, value) != true)) {
                     this.UserProfileField = value;
                     this.RaisePropertyChanged("UserProfile");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Work_Life_Balance {
+            get {
+                return this.Work_Life_BalanceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Work_Life_BalanceField, value) != true)) {
+                    this.Work_Life_BalanceField = value;
+                    this.RaisePropertyChanged("Work_Life_Balance");
                 }
             }
         }
@@ -799,6 +859,9 @@ namespace MachineLearningEngine.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddExternalContent", ReplyAction="http://tempuri.org/IPredictionDataService/AddExternalContentResponse")]
         System.Threading.Tasks.Task AddExternalContentAsync(MachineLearningEngine.ServiceReference1.ExternalEvaluation post);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetExternalContent", ReplyAction="http://tempuri.org/IPredictionDataService/GetExternalContentResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MachineLearningEngine.ServiceReference1.ExternalEvaluation>> GetExternalContentAsync(string source);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddTouchPoint", ReplyAction="http://tempuri.org/IPredictionDataService/AddTouchPointResponse")]
         System.Threading.Tasks.Task AddTouchPointAsync(MachineLearningEngine.ServiceReference1.TouchPoint touchPoint);
         
@@ -870,6 +933,10 @@ namespace MachineLearningEngine.ServiceReference1 {
         
         public System.Threading.Tasks.Task AddExternalContentAsync(MachineLearningEngine.ServiceReference1.ExternalEvaluation post) {
             return base.Channel.AddExternalContentAsync(post);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MachineLearningEngine.ServiceReference1.ExternalEvaluation>> GetExternalContentAsync(string source) {
+            return base.Channel.GetExternalContentAsync(source);
         }
         
         public System.Threading.Tasks.Task AddTouchPointAsync(MachineLearningEngine.ServiceReference1.TouchPoint touchPoint) {

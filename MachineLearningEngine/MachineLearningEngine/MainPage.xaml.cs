@@ -133,7 +133,7 @@ namespace MachineLearningEngine
         {
             const string API_KEY = "AIzaSyB1eYnBdNSAjwwK1rMSw7hBlsi2Wh4ulRY";
             const string PROJECT = "163818756296";
-            const string ID = "enterpriseClimate2";
+            const string ID = "enterpriseClimate4";
             var processePost  = new Post();
 
             var service = new Google.Apis.Prediction.v1_6.PredictionService(new BaseClientService.Initializer
@@ -325,7 +325,7 @@ namespace MachineLearningEngine
             this.txtMsg.Text = "Total rows : " + posts.Count().ToString();
 
             int totalRows = posts.Count();
-
+            
             foreach (var post in posts)
             {
                 line = post.Description;
@@ -380,33 +380,6 @@ namespace MachineLearningEngine
             await SaveStringToLocalFile("tagCloudLabel2.txt", lines);
         }
 
-        //private async void btnTagCloudByCategory_Click(object sender, RoutedEventArgs e)
-        //{
-        //    string line;
-        //    List<string> lines = new List<string>();
-
-        //    // Get all posts
-        //    ServiceReference1.PredictionDataServiceClient svc = new ServiceReference1.PredictionDataServiceClient();
-
-        //    var posts = await svc.GetAllPostsAsync();
-
-        //    this.txtMsg.Text = "Total rows : " + posts.Count().ToString();
-
-        //    int totalRows = posts.Count();
-
-        //    foreach (var post in posts)
-        //    {
-        //        line = post.PredictionLabelResult;
-
-        //        if (line != null)
-        //            lines.Add(line);
-
-        //    }
-
-        //    // save to file
-        //    await SaveStringToLocalFile("tagCloudCategory2.txt", lines);
-        //}
-
         private async void btnTagCloudByCategory_Click(object sender, RoutedEventArgs e)
         {
             string line;
@@ -437,6 +410,51 @@ namespace MachineLearningEngine
 
             // save to file
             await SaveStringToLocalFile("tagCloudCategory.txt", lines);
+        }
+
+        private async void btnTagCloudByLM_Click(object sender, RoutedEventArgs e)
+        {
+
+            string line;
+            List<string> lines = new List<string>();
+
+            // Get all posts
+            ServiceReference1.PredictionDataServiceClient svc = new ServiceReference1.PredictionDataServiceClient();
+
+            //var posts = await svc.GetExternalContentAsync("LOVE_MONDAYS");
+
+            var posts = await svc.GetExternalContentAsync("GLASS_DOOR");
+
+            this.txtMsg.Text = "Total rows : " + posts.Count().ToString();
+
+            int totalRows = posts.Count();
+
+            foreach (var post in posts)
+            {
+                //line = post.Pos;
+                line = post.Cons;
+
+                string[] words = line.Split(' ');
+
+                foreach (var word in words)
+                {
+                    if (IsStopWord(word))
+                        line = line.Replace(" " + word + " ", " ");
+
+                    if (IsSpecialChar(word))
+                        line = line.Replace(word, "");
+                }
+
+                lines.Add(line);
+
+                this.lstLog.Items.Add("Cleaning line : " + lines.Count().ToString());
+                this.lstLog.Items.Add(line);
+
+            }
+
+            // save to file
+            await SaveStringToLocalFile("tagCloudLGLASS_CONS.txt", lines);
+
         }
 
      

@@ -37,6 +37,12 @@
   <wsdl:message name="IPredictionDataService_AddExternalContent_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddExternalContentResponse" />
   </wsdl:message>
+  <wsdl:message name="IPredictionDataService_GetExternalContent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExternalContent" />
+  </wsdl:message>
+  <wsdl:message name="IPredictionDataService_GetExternalContent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExternalContentResponse" />
+  </wsdl:message>
   <wsdl:message name="IPredictionDataService_AddTouchPoint_InputMessage">
     <wsdl:part name="parameters" element="tns:AddTouchPoint" />
   </wsdl:message>
@@ -75,6 +81,10 @@
     <wsdl:operation name="AddExternalContent">
       <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/AddExternalContent" message="tns:IPredictionDataService_AddExternalContent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/AddExternalContentResponse" message="tns:IPredictionDataService_AddExternalContent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExternalContent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/GetExternalContent" message="tns:IPredictionDataService_GetExternalContent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPredictionDataService/GetExternalContentResponse" message="tns:IPredictionDataService_GetExternalContent_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddTouchPoint">
       <wsdl:input wsaw:Action="http://tempuri.org/IPredictionDataService/AddTouchPoint" message="tns:IPredictionDataService_AddTouchPoint_InputMessage" />
@@ -129,6 +139,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddExternalContent">
       <soap:operation soapAction="http://tempuri.org/IPredictionDataService/AddExternalContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExternalContent">
+      <soap:operation soapAction="http://tempuri.org/IPredictionDataService/GetExternalContent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

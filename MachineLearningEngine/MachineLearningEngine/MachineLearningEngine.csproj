@@ -123,6 +123,9 @@
     <Content Include="Assets\client_secrets.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\ServiceReference1\MachineLearningEngine.ServiceReference1.ExternalEvaluation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference1\MachineLearningEngine.ServiceReference1.Post.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

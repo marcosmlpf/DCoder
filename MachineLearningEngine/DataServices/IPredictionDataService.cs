@@ -26,6 +26,9 @@ namespace DataServices
         void AddExternalContent(ExternalEvaluation post);
 
         [OperationContract]
+        IEnumerable<ExternalEvaluation> GetExternalContent(string source);
+
+        [OperationContract]
         void AddTouchPoint(TouchPoint touchPoint);
 
         [OperationContract]

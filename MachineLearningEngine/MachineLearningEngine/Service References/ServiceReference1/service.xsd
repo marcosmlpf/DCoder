@@ -63,10 +63,24 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetExternalContent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="source" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExternalContentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="GetExternalContentResult" nillable="true" type="q6:ArrayOfExternalEvaluation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddTouchPoint">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="touchPoint" nillable="true" type="q6:TouchPoint" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="touchPoint" nillable="true" type="q7:TouchPoint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -78,7 +92,7 @@
   <xs:element name="AddPerson">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="person" nillable="true" type="q7:Person" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/DataServices" minOccurs="0" name="person" nillable="true" type="q8:Person" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
