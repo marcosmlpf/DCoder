@@ -62,6 +62,8 @@ namespace MachineLearningEngine.ServiceReference1 {
         
         private System.Nullable<System.DateTime> PostDateField;
         
+        private System.Nullable<System.DateTime> PredictionDateField;
+        
         private string PredictionLabelResultField;
         
         private string ProviderUserIdField;
@@ -348,6 +350,19 @@ namespace MachineLearningEngine.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> PredictionDate {
+            get {
+                return this.PredictionDateField;
+            }
+            set {
+                if ((this.PredictionDateField.Equals(value) != true)) {
+                    this.PredictionDateField = value;
+                    this.RaisePropertyChanged("PredictionDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string PredictionLabelResult {
             get {
                 return this.PredictionLabelResultField;
@@ -444,11 +459,11 @@ namespace MachineLearningEngine.ServiceReference1 {
         
         private string CommentField;
         
-        private string Comp_BenefitsField;
+        private System.Nullable<int> Comp_BenefitsField;
         
         private string ConsField;
         
-        private string Culture_ValuesField;
+        private System.Nullable<int> Culture_ValuesField;
         
         private int IdField;
         
@@ -460,13 +475,13 @@ namespace MachineLearningEngine.ServiceReference1 {
         
         private string RecommendField;
         
-        private string Senior_ManagementField;
+        private System.Nullable<int> Senior_ManagementField;
         
         private string SourceField;
         
         private string UserProfileField;
         
-        private string Work_Life_BalanceField;
+        private System.Nullable<int> Work_Life_BalanceField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AdiceToPresident {
@@ -495,12 +510,12 @@ namespace MachineLearningEngine.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Comp_Benefits {
+        public System.Nullable<int> Comp_Benefits {
             get {
                 return this.Comp_BenefitsField;
             }
             set {
-                if ((object.ReferenceEquals(this.Comp_BenefitsField, value) != true)) {
+                if ((this.Comp_BenefitsField.Equals(value) != true)) {
                     this.Comp_BenefitsField = value;
                     this.RaisePropertyChanged("Comp_Benefits");
                 }
@@ -521,12 +536,12 @@ namespace MachineLearningEngine.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Culture_Values {
+        public System.Nullable<int> Culture_Values {
             get {
                 return this.Culture_ValuesField;
             }
             set {
-                if ((object.ReferenceEquals(this.Culture_ValuesField, value) != true)) {
+                if ((this.Culture_ValuesField.Equals(value) != true)) {
                     this.Culture_ValuesField = value;
                     this.RaisePropertyChanged("Culture_Values");
                 }
@@ -599,12 +614,12 @@ namespace MachineLearningEngine.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Senior_Management {
+        public System.Nullable<int> Senior_Management {
             get {
                 return this.Senior_ManagementField;
             }
             set {
-                if ((object.ReferenceEquals(this.Senior_ManagementField, value) != true)) {
+                if ((this.Senior_ManagementField.Equals(value) != true)) {
                     this.Senior_ManagementField = value;
                     this.RaisePropertyChanged("Senior_Management");
                 }
@@ -638,12 +653,12 @@ namespace MachineLearningEngine.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Work_Life_Balance {
+        public System.Nullable<int> Work_Life_Balance {
             get {
                 return this.Work_Life_BalanceField;
             }
             set {
-                if ((object.ReferenceEquals(this.Work_Life_BalanceField, value) != true)) {
+                if ((this.Work_Life_BalanceField.Equals(value) != true)) {
                     this.Work_Life_BalanceField = value;
                     this.RaisePropertyChanged("Work_Life_Balance");
                 }

@@ -24,9 +24,9 @@ namespace DataServices
         public string PredictionLabelResult { get; set; }
         public string UserProfile { get; set; }
         public string Source { get; set; }
-        public string Comp_Benefits { get; set; }
-        public string Work_Life_Balance { get; set; }
-        public string Senior_Management { get; set; }
-        public string Culture_Values { get; set; }
+        public Nullable<int> Comp_Benefits { get; set; }
+        public Nullable<int> Work_Life_Balance { get; set; }
+        public Nullable<int> Senior_Management { get; set; }
+        public Nullable<int> Culture_Values { get; set; }
     }
 }

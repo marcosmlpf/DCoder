@@ -28,12 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnCallAPI = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnCallAPI
+            // 
+            this.btnCallAPI.Location = new System.Drawing.Point(112, 93);
+            this.btnCallAPI.Name = "btnCallAPI";
+            this.btnCallAPI.Size = new System.Drawing.Size(75, 23);
+            this.btnCallAPI.TabIndex = 0;
+            this.btnCallAPI.Text = "Call API";
+            this.btnCallAPI.UseVisualStyleBackColor = true;
+            this.btnCallAPI.Click += new System.EventHandler(this.btnCallAPI_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnCallAPI);
+            this.Name = "Form1";
+            this.Text = "SmartCanvas API Tester";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnCallAPI;
     }
 }
 

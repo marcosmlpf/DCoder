@@ -41,5 +41,6 @@ namespace DataServices
         public string PersonTitle { get; set; }
         public string CardId { get; set; }
         public string ProviderUserId { get; set; }
+        public Nullable<System.DateTime> PredictionDate { get; set; }
     }
 }

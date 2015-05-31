@@ -86,6 +86,9 @@ namespace HtmlParser.ServiceReference1 {
         private System.Nullable<System.DateTime> PostDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> PredictionDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PredictionLabelResultField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -387,6 +390,19 @@ namespace HtmlParser.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> PredictionDate {
+            get {
+                return this.PredictionDateField;
+            }
+            set {
+                if ((this.PredictionDateField.Equals(value) != true)) {
+                    this.PredictionDateField = value;
+                    this.RaisePropertyChanged("PredictionDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string PredictionLabelResult {
             get {
                 return this.PredictionLabelResultField;
@@ -490,13 +506,13 @@ namespace HtmlParser.ServiceReference1 {
         private string CommentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Comp_BenefitsField;
+        private System.Nullable<int> Comp_BenefitsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ConsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Culture_ValuesField;
+        private System.Nullable<int> Culture_ValuesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -514,7 +530,7 @@ namespace HtmlParser.ServiceReference1 {
         private string RecommendField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Senior_ManagementField;
+        private System.Nullable<int> Senior_ManagementField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SourceField;
@@ -523,7 +539,7 @@ namespace HtmlParser.ServiceReference1 {
         private string UserProfileField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Work_Life_BalanceField;
+        private System.Nullable<int> Work_Life_BalanceField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -562,12 +578,12 @@ namespace HtmlParser.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Comp_Benefits {
+        public System.Nullable<int> Comp_Benefits {
             get {
                 return this.Comp_BenefitsField;
             }
             set {
-                if ((object.ReferenceEquals(this.Comp_BenefitsField, value) != true)) {
+                if ((this.Comp_BenefitsField.Equals(value) != true)) {
                     this.Comp_BenefitsField = value;
                     this.RaisePropertyChanged("Comp_Benefits");
                 }
@@ -588,12 +604,12 @@ namespace HtmlParser.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Culture_Values {
+        public System.Nullable<int> Culture_Values {
             get {
                 return this.Culture_ValuesField;
             }
             set {
-                if ((object.ReferenceEquals(this.Culture_ValuesField, value) != true)) {
+                if ((this.Culture_ValuesField.Equals(value) != true)) {
                     this.Culture_ValuesField = value;
                     this.RaisePropertyChanged("Culture_Values");
                 }
@@ -666,12 +682,12 @@ namespace HtmlParser.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Senior_Management {
+        public System.Nullable<int> Senior_Management {
             get {
                 return this.Senior_ManagementField;
             }
             set {
-                if ((object.ReferenceEquals(this.Senior_ManagementField, value) != true)) {
+                if ((this.Senior_ManagementField.Equals(value) != true)) {
                     this.Senior_ManagementField = value;
                     this.RaisePropertyChanged("Senior_Management");
                 }
@@ -705,12 +721,12 @@ namespace HtmlParser.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Work_Life_Balance {
+        public System.Nullable<int> Work_Life_Balance {
             get {
                 return this.Work_Life_BalanceField;
             }
             set {
-                if ((object.ReferenceEquals(this.Work_Life_BalanceField, value) != true)) {
+                if ((this.Work_Life_BalanceField.Equals(value) != true)) {
                     this.Work_Life_BalanceField = value;
                     this.RaisePropertyChanged("Work_Life_Balance");
                 }
@@ -979,6 +995,12 @@ namespace HtmlParser.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddExternalContent", ReplyAction="http://tempuri.org/IPredictionDataService/AddExternalContentResponse")]
         System.Threading.Tasks.Task AddExternalContentAsync(HtmlParser.ServiceReference1.ExternalEvaluation post);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetExternalContent", ReplyAction="http://tempuri.org/IPredictionDataService/GetExternalContentResponse")]
+        HtmlParser.ServiceReference1.ExternalEvaluation[] GetExternalContent(string source);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/GetExternalContent", ReplyAction="http://tempuri.org/IPredictionDataService/GetExternalContentResponse")]
+        System.Threading.Tasks.Task<HtmlParser.ServiceReference1.ExternalEvaluation[]> GetExternalContentAsync(string source);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPredictionDataService/AddTouchPoint", ReplyAction="http://tempuri.org/IPredictionDataService/AddTouchPointResponse")]
         void AddTouchPoint(HtmlParser.ServiceReference1.TouchPoint touchPoint);
         
@@ -1063,6 +1085,14 @@ namespace HtmlParser.ServiceReference1 {
         
         public System.Threading.Tasks.Task AddExternalContentAsync(HtmlParser.ServiceReference1.ExternalEvaluation post) {
             return base.Channel.AddExternalContentAsync(post);
+        }
+        
+        public HtmlParser.ServiceReference1.ExternalEvaluation[] GetExternalContent(string source) {
+            return base.Channel.GetExternalContent(source);
+        }
+        
+        public System.Threading.Tasks.Task<HtmlParser.ServiceReference1.ExternalEvaluation[]> GetExternalContentAsync(string source) {
+            return base.Channel.GetExternalContentAsync(source);
         }
         
         public void AddTouchPoint(HtmlParser.ServiceReference1.TouchPoint touchPoint) {

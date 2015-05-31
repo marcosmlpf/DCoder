@@ -61,10 +61,10 @@ warning 6002: The table/view 'C:\USERS\FELIPERC\ONEDRIVE\PUBLIC\ESTUDO\DCODER\EN
           <Property Name="PredictionLabelResult" Type="varchar" MaxLength="100" />
           <Property Name="UserProfile" Type="varchar(max)" />
           <Property Name="Source" Type="varchar" MaxLength="100" />
-          <Property Name="Comp_Benefits" Type="char" MaxLength="1" />
-          <Property Name="Work_Life_Balance" Type="char" MaxLength="1" />
-          <Property Name="Senior_Management" Type="char" MaxLength="1" />
-          <Property Name="Culture_Values" Type="char" MaxLength="1" />
+          <Property Name="Comp_Benefits" Type="int" />
+          <Property Name="Work_Life_Balance" Type="int" />
+          <Property Name="Senior_Management" Type="int" />
+          <Property Name="Culture_Values" Type="int" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
@@ -107,6 +107,7 @@ warning 6002: The table/view 'C:\USERS\FELIPERC\ONEDRIVE\PUBLIC\ESTUDO\DCODER\EN
           <Property Name="PersonTitle" Type="nchar" MaxLength="100" />
           <Property Name="CardId" Type="nchar" MaxLength="50" />
           <Property Name="ProviderUserId" Type="nchar" MaxLength="100" />
+          <Property Name="PredictionDate" Type="datetime" />
         </EntityType>
         <EntityType Name="PredictionLabel">
           <Key>
@@ -195,10 +196,10 @@ warning 6002: The table/view 'C:\USERS\FELIPERC\ONEDRIVE\PUBLIC\ESTUDO\DCODER\EN
             <End Role="Category" EntitySet="Category" />
             <End Role="PredictionLabel" EntitySet="PredictionLabel" />
           </AssociationSet>
-          <EntitySet Name="ExternalEvaluation" EntityType="PredictionModel.ExternalEvaluation" />
           <EntitySet Name="TouchPoint" EntityType="PredictionModel.TouchPoint" />
           <EntitySet Name="Person" EntityType="PredictionModel.Person" />
           <EntitySet Name="Backup_Post" EntityType="PredictionModel.Backup_Post" />
+          <EntitySet Name="ExternalEvaluation" EntityType="PredictionModel.ExternalEvaluation" />
         </EntityContainer>
         <EntityType Name="Post">
           <Key>
@@ -231,6 +232,7 @@ warning 6002: The table/view 'C:\USERS\FELIPERC\ONEDRIVE\PUBLIC\ESTUDO\DCODER\EN
           <Property Name="PersonTitle" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="CardId" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="ProviderUserId" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="PredictionDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -264,25 +266,6 @@ warning 6002: The table/view 'C:\USERS\FELIPERC\ONEDRIVE\PUBLIC\ESTUDO\DCODER\EN
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="ExternalEvaluation">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Pos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Cons" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="AdiceToPresident" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Recommend" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Rating" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="PredictionLabelResult" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="UserProfile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Source" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Comp_Benefits" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Work_Life_Balance" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Senior_Management" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Culture_Values" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-        </EntityType>
         <EntityType Name="TouchPoint">
           <Key>
             <PropertyRef Name="Id" />
@@ -335,6 +318,25 @@ warning 6002: The table/view 'C:\USERS\FELIPERC\ONEDRIVE\PUBLIC\ESTUDO\DCODER\EN
           <Property Name="CardId" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="ProviderUserId" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
         </EntityType>
+        <EntityType Name="ExternalEvaluation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cons" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AdiceToPresident" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Recommend" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PredictionLabelResult" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserProfile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Comp_Benefits" Type="Int32" />
+          <Property Name="Work_Life_Balance" Type="Int32" />
+          <Property Name="Senior_Management" Type="Int32" />
+          <Property Name="Culture_Values" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -344,6 +346,7 @@ warning 6002: The table/view 'C:\USERS\FELIPERC\ONEDRIVE\PUBLIC\ESTUDO\DCODER\EN
           <EntitySetMapping Name="Post">
             <EntityTypeMapping TypeName="PredictionModel.Post">
               <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="PredictionDate" ColumnName="PredictionDate" />
                 <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
                 <ScalarProperty Name="CardId" ColumnName="CardId" />
                 <ScalarProperty Name="PersonTitle" ColumnName="PersonTitle" />
@@ -390,26 +393,6 @@ warning 6002: The table/view 'C:\USERS\FELIPERC\ONEDRIVE\PUBLIC\ESTUDO\DCODER\EN
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Label" ColumnName="Label" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ExternalEvaluation">
-            <EntityTypeMapping TypeName="PredictionModel.ExternalEvaluation">
-              <MappingFragment StoreEntitySet="ExternalEvaluation">
-                <ScalarProperty Name="Culture_Values" ColumnName="Culture_Values" />
-                <ScalarProperty Name="Senior_Management" ColumnName="Senior_Management" />
-                <ScalarProperty Name="Work_Life_Balance" ColumnName="Work_Life_Balance" />
-                <ScalarProperty Name="Comp_Benefits" ColumnName="Comp_Benefits" />
-                <ScalarProperty Name="Source" ColumnName="Source" />
-                <ScalarProperty Name="UserProfile" ColumnName="UserProfile" />
-                <ScalarProperty Name="PredictionLabelResult" ColumnName="PredictionLabelResult" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="Rating" ColumnName="Rating" />
-                <ScalarProperty Name="Recommend" ColumnName="Recommend" />
-                <ScalarProperty Name="AdiceToPresident" ColumnName="AdiceToPresident" />
-                <ScalarProperty Name="Cons" ColumnName="Cons" />
-                <ScalarProperty Name="Pos" ColumnName="Pos" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -465,6 +448,26 @@ warning 6002: The table/view 'C:\USERS\FELIPERC\ONEDRIVE\PUBLIC\ESTUDO\DCODER\EN
                 <ScalarProperty Name="PredictionLabelResult" ColumnName="PredictionLabelResult" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExternalEvaluation">
+            <EntityTypeMapping TypeName="PredictionModel.ExternalEvaluation">
+              <MappingFragment StoreEntitySet="ExternalEvaluation">
+                <ScalarProperty Name="Culture_Values" ColumnName="Culture_Values" />
+                <ScalarProperty Name="Senior_Management" ColumnName="Senior_Management" />
+                <ScalarProperty Name="Work_Life_Balance" ColumnName="Work_Life_Balance" />
+                <ScalarProperty Name="Comp_Benefits" ColumnName="Comp_Benefits" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="UserProfile" ColumnName="UserProfile" />
+                <ScalarProperty Name="PredictionLabelResult" ColumnName="PredictionLabelResult" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Recommend" ColumnName="Recommend" />
+                <ScalarProperty Name="AdiceToPresident" ColumnName="AdiceToPresident" />
+                <ScalarProperty Name="Cons" ColumnName="Cons" />
+                <ScalarProperty Name="Pos" ColumnName="Pos" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

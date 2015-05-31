@@ -9,10 +9,10 @@
         <EntityTypeShape EntityType="PredictionModel.Category" Width="1.5" PointX="4.25" PointY="0.75" />
         <EntityTypeShape EntityType="PredictionModel.PredictionLabel" Width="1.5" PointX="6.5" PointY="0.625" />
         <AssociationConnector Association="PredictionModel.FK_CATEGORY" />
-        <EntityTypeShape EntityType="PredictionModel.ExternalEvaluation" Width="1.5" PointX="4.375" PointY="3.75" />
         <EntityTypeShape EntityType="PredictionModel.TouchPoint" Width="1.5" PointX="6.375" PointY="3.75" />
-        <EntityTypeShape EntityType="PredictionModel.Person" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="PredictionModel.Person" Width="1.5" PointX="8.375" PointY="3.75" />
         <EntityTypeShape EntityType="PredictionModel.Backup_Post" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="PredictionModel.ExternalEvaluation" Width="1.5" PointX="4.25" PointY="2.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

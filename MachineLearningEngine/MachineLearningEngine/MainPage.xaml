@@ -28,9 +28,10 @@
         <Grid Grid.Row="1" Grid.Column="1" Background="White" Margin="0 0 0 20">
             <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtMsg" Text="" Grid.ColumnSpan="2" />
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="1" Background="White" Margin="0 0 0 0">
+        <Grid Grid.Row="2" Grid.Column="1" Margin="0 0 0 0">
             
             <!--<TextBox x:Name="txtLog" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible" IsReadOnly="True" TextWrapping="Wrap"/>-->
+            
             <ListBox Name="lstLog" ScrollViewer.VerticalScrollMode="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible" ></ListBox>
         </Grid>
         <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center">
